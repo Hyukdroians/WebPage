@@ -241,5 +241,9 @@ animation: scrollDown-mobile 10s linear infinite,changeWeight 4s ease-in-out inf
     }
 }
 
+    .archive-images {
+    display: flex;
+    gap: 10px; /* 이미지 사이 간격 */
+}
     .archive-images a {
-        text-decoration: none; /* 하이퍼링크 밑줄 제거 */}
+        text-decoration: none;}
