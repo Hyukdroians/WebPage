@@ -240,3 +240,6 @@ animation: scrollDown-mobile 10s linear infinite,changeWeight 4s ease-in-out inf
         transform: translateX(0%); /* 끝 위치 아래쪽, 90도 회전 */
     }
 }
+
+    .archive-images a {
+        text-decoration: none; /* 하이퍼링크 밑줄 제거 */}
