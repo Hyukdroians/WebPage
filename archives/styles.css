@@ -1,0 +1,249 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Pretendard, sans-serif;
+}
+
+h5 {
+    font-weight: 700;
+    font-size: 50px;
+
+}
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+background-color: #f8f8f8
+}
+
+.container {
+    display: flex;
+    flex: 1;
+}
+
+.gnb {
+    background-color: #ffffff; /* 흰색 배경 */
+    width: 125px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+     /* 둥근 모서리 */
+    overflow: hidden
+}
+
+.lnb {
+    background-color: #f8f8f8; /* 부드러운 회색 배경 */
+    height: 50px; 
+    display: flex; 
+    align-items: center; 
+    padding: 0 15px; /* 좌우 패딩 증가 */
+   
+}
+
+.lnb ul {
+    display: flex; 
+    list-style: none; 
+}
+
+.lnb li {
+    margin-right: 24px; /* 간격 조정 */
+    font-weight: 497; /* 텍스트 강조 */
+    color: #007aff; /* iOS 링크 색상 */
+}
+
+.content-area {
+    display: flex;
+    flex-direction: column; 
+    flex: 1;
+    padding: 30px; /* CONTENTS 여백 추가 */
+}
+.contents {
+    background-color: #ffffff; 
+    padding: 49px;
+    flex: 1; 
+    border-radius: 10px; /* 둥근 모서리 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    line-height: 600%
+}
+
+.contents pre {
+    line-height: 1.5
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    position: fixed; /* 화면에 고정 */
+    bottom: 0; /* 하단에 위치 */
+    left: 0;
+    width: 100%; /* 화면 너비에 맞게 확장 */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.footer p {
+    display: inline-block; /* 인라인 블록으로 설정 */
+    white-space: nowrap; /* 줄 바꿈 방지 */
+    animation: marquee 25s linear infinite; /* 애니메이션 적용 */
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(-200%); /* 오른쪽에서 시작 */
+    }
+    100% {
+        transform: translateX(200%); /* 왼쪽으로 이동 */
+    }
+}
+
+@keyframes marquee-mobile {
+    0% {
+        transform: translateX(-100%); /* 오른쪽에서 시작 */
+    }
+    100% {
+        transform: translateX(100%); /* 왼쪽으로 이동 */
+    }
+}
+
+@keyframes changeWeight {
+    0%, 100% {
+        font-weight: 999; /* 얇은 두께 */
+    }
+    50% {
+        font-weight: 100; /* 두꺼운 두께 */
+    }
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: translateY(-700%) rotate(90deg); /* 시작 위치 위쪽, 90도 회전 */
+    }
+    
+    25% {
+        transform: translateY(-350%) rotate(90deg); /* 시작 위치 위쪽, 90도 회전 */
+    }
+    
+    50% {
+        transform: translateY(0%) rotate(90deg); /* 시작 위치 위쪽, 90도 회전 */
+    }
+    
+    75% {
+        transform: translateY(350%) rotate(90deg); /* 시작 위치 위쪽, 90도 회전 */
+    }
+    100% {
+        transform: translateY(700%) rotate(90deg); /* 끝 위치 아래쪽, 90도 회전 */
+    }
+}
+
+.rotate {
+    animation: scrollDown 15s linear infinite,changeWeight 4s ease-in-out infinite;
+    transform: rotate(90deg);
+    transform-origin: left bottom; /* 회전 중심을 조정 */
+    white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+    margin: 0; /* 여백 제거 */
+    font-size: 5rem;
+    font-weight: 999;
+    letter-spacing: -0.13em;
+}
+
+.rotate span {
+    display: inline-block; 
+    animation: changeWeight 4s ease-in-out infinite; 
+    letter-spacing: inherit; /* 부모의 자간을 따름 */
+}
+
+.rotate span:nth-child(1) { animation-delay: 0.1s; }
+.rotate span:nth-child(2) { animation-delay: 0.2s; }
+.rotate span:nth-child(3) { animation-delay: 0.3s; }
+.rotate span:nth-child(4) { animation-delay: 0.4s; }
+.rotate span:nth-child(5) { animation-delay: 0.5s; }
+.rotate span:nth-child(6) { animation-delay: 0.6s; }
+.rotate span:nth-child(7) { animation-delay: 0.7s; }
+.rotate span:nth-child(8) { animation-delay: 0.8s; }
+.rotate span:nth-child(9) { animation-delay: 0.9s; }
+.rotate span:nth-child(10) { animation-delay: 1s; }
+.rotate span:nth-child(11) { animation-delay: 1.1s; }
+
+
+
+/* 모바일 화면에 맞춘 스타일 */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .gnb {
+    width: 101%; /* 모바일에서는 전체 너비로 설정 */
+    padding: 23px;
+  }
+
+  .content-area {
+    padding: 0.1px; /* 여백 줄이기 */
+  }
+
+  .contents {
+    padding: 20px;
+    font-size: 15px; /* 텍스트 크기 줄이기 */
+  }
+
+  h5 {
+    font-size: 50px; /* 헤더 크기 조정 */
+  }
+
+  .footer {
+    font-size: 15px; /* 푸터 텍스트 크기 줄이기 */
+  }
+    
+   .footer p {
+    display: inline-block; /* 인라인 블록으로 설정 */
+    white-space: nowrap; /* 줄 바꿈 방지 */
+    animation: marquee-mobile 20s linear infinite; /* 애니메이션 적용 */
+}
+    
+.rotate{
+    
+animation: scrollDown-mobile 10s linear infinite,changeWeight 4s ease-in-out infinite;
+        transform-origin: left bottom; /* 회전 중심을 조정 */
+    white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+    margin: 0; /* 여백 제거 */
+    font-size: 3rem;
+    font-weight: 999;
+    letter-spacing: -0.13em;  
+    text-align: center
+    
+    
+    }
+
+@keyframes scrollDown-mobile {
+    0% {
+        transform: translateX(0%); /* 시작 위치 위쪽, 90도 회전 */
+    }
+    
+    25% {
+        transform: translateX(0%); /* 시작 위치 위쪽, 90도 회전 */
+    }
+    
+    50% {
+        transform: translateX(0%); /* 시작 위치 위쪽, 90도 회전 */
+    }
+    
+    75% {
+        transform: translateX(0%); /* 시작 위치 위쪽, 90도 회전 */
+    }
+    100% {
+        transform: translateX(0%); /* 끝 위치 아래쪽, 90도 회전 */
+    }
+}
+
+    .archive-images {
+    display: flex;
+    gap: 20px; /* 이미지 사이 간격 */
+}
+    .archive-images a {
+        text-decoration: none;}
