@@ -6,22 +6,29 @@
     <link rel="stylesheet" prefetch="body" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>Hyukdroians</title>
+    <style>
+        .rotate span {
+            display: inline-block;
+            font-weight: 400; /* 기본 글자 굵기 */
+            transition: font-weight 0.5s ease-in-out; /* 부드러운 애니메이션 */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <nav class="gnb">
             <h2 class="rotate">
-            <span>H</span>
-            <span>y</span>
-            <span>u</span>
-            <span>k</span>
-            <span>d</span>
-            <span>r</span>
-            <span>o</span>
-            <span>i</span>
-            <span>a</span>
-            <span>n</span>
-            <span>s</span>
+                <span>H</span>
+                <span>y</span>
+                <span>u</span>
+                <span>k</span>
+                <span>d</span>
+                <span>r</span>
+                <span>o</span>
+                <span>i</span>
+                <span>a</span>
+                <span>n</span>
+                <span>s</span>
             </h2>
         </nav>
         <div class="content-area">
@@ -34,23 +41,43 @@
                 </ul>
             </aside>
             <main class="contents">
-    <h5>Archives</h5>
-<pre>2023 - 2024</pre>
+                <h5>Archives</h5>
+                <pre>2023 - 2024</pre>
                 
-    <div class="archive-images">
-        <a href="https://youtu.be/tk8dXvmWT0o" target="_blank">
-            <img src="/files/thewonmin.png" alt="더 원민" width="150" height="84.375">
-        </a>
-        <a href="https://youtu.be/ohOt03IC6I8" target="_blank">
-            <img src="/files/kdd.jpg" alt="광주대동고등학교 2024 홍보영상" width="150" height="84.375">
-        </a>
-    </div>
-                        </main>
+                <div class="archive-images">
+                    <a href="https://youtu.be/tk8dXvmWT0o" target="_blank">
+                        <img src="/files/thewonmin.png" alt="더 원민" width="150" height="84.375">
+                    </a>
+                    <a href="https://youtu.be/ohOt03IC6I8" target="_blank">
+                        <img src="/files/kdd.jpg" alt="광주대동고등학교 2024 홍보영상" width="150" height="84.375">
+                    </a>
+                </div>
+            </main>
         </div> <!-- content-area 닫는 태그 추가 -->
     </div> <!-- container 닫는 태그 추가 -->
               
     <footer class="footer">
         <p>hyukdroians@naver.com / twitter @hyukdroians / instagram @hy.ukie / high school student, 1st grade / studying html+css</p>
     </footer>
+
+    <script>
+        // "Hyukdroians" 글자 애니메이션
+        const letters = document.querySelectorAll(".rotate span");
+
+        function animateLetters() {
+            letters.forEach((letter, index) => {
+                setTimeout(() => {
+                    letter.style.fontWeight = "900"; // 굵게 변경
+                    setTimeout(() => {
+                        letter.style.fontWeight = "100"; // 다시 원래대로
+                    }, 1300); // 0.3초 후 원래 굵기로
+                }, index * 150); // 각 글자의 애니메이션을 0.15초 간격으로 실행
+            });
+        }
+
+        // 일정 간격으로 반복 실행
+        setInterval(animateLetters, 2000); // 2초마다 반복 실행
+    </script>
+
 </body>
 </html>
