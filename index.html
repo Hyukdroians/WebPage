@@ -20,6 +20,20 @@
 </head>
 <body>
 
+<div id="load">
+  <img src="/files/loading.gif" alt="loading">
+</div>
+
+<script>
+  const loading_page = document.getElementById("load");
+
+  window.onload = function() {
+    setTimeout(() => {
+      loading_page.style.display = 'none';
+    }, 2000); // 2초(2000ms) 후에 숨김
+  }
+</script>
+    
     <h2 class="rotate">
         <span>H</span>
         <span>y</span>

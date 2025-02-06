@@ -13,6 +13,23 @@
     src: url('/woff2/PretendardVariable.woff2') format('woff2-variations');
 }
 
+#load {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex; /* Flexbox 적용 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+    background: white;
+    opacity: 0.8;
+    z-index: 99;
+}
+
+#load > img {
+    z-index: 100;
+}
+
+
 body {
     font-family: 'Pretendard', sans-serif;
     display: flex;
