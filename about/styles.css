@@ -25,6 +25,12 @@ h5 {
 
 }
 
+.shortcut-images {
+    display: flex;
+    gap: 20px!important; /* 이미지 사이 간격 */}
+    
+    .shortcut-images a {
+        text-decoration: none!important;}
 
 
 body {
@@ -175,6 +181,14 @@ background-color: #f8f8f8
   .container {
     flex-direction: column;
   }
+    
+    .shortcut-images {
+    display: flex;
+    gap: 20px!important; /* 이미지 사이 간격 */}
+    
+    .shortcut-images a {
+        text-decoration: none!important;}
+
 
   .gnb {
     width: 101%; /* 모바일에서는 전체 너비로 설정 */
@@ -255,11 +269,4 @@ animation: scrollDown-mobile 10s linear infinite,changeWeight 4s ease-in-out inf
         transform: translateX(0%); /* 끝 위치 아래쪽, 90도 회전 */
     }
 }
-
-    .shortcut-images {
-    display: flex;
-    gap: 20px!important; /* 이미지 사이 간격 */}
-    
-    .shortcut-images a {
-        text-decoration: none!important;}
 
