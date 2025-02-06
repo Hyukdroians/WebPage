@@ -79,3 +79,9 @@ body {
         font-size: 20px; /* 글자 크기 조정 */
     }
 }
+
+@media (max-width: 600px) {
+    .rotate {
+        font-size: 3rem; /* 모바일에서 글자 크기 조정 */
+    }
+}
