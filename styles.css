@@ -4,3 +4,21 @@
     padding: 0;
     font-family: Pretendard, sans-serif;
 }
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: swap;
+    src: url('/woff2/PretendardVariable.woff2') format('woff2-variations');
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+}
+
+.rotate span {
+            display: inline-block;
+            font-weight: 400;
+            transition: font-weight 0.3s ease-in-out; /* 부드러운 애니메이션 효과 */
+        }

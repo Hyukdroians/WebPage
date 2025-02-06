@@ -1,18 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SSLDFFKBZB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SSLDFFKBZB');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" prefetch="body" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>Hyukdroians</title>
     	<meta name="description" content="2024 10 20 ~">
@@ -27,38 +17,24 @@
 <meta name="twitter:title" content="hyukdroians' web Portfolio">
 <meta name="twitter:description" content="2024 10 20 ~">
 <meta name="twitter:image" content="https://hyukdroians.kro.kr/opengraph.png">
-    <style>
-        .rotate span {
-            display: inline-block;
-            font-weight: 400;
-            transition: font-weight 0.3s ease-in-out; /* 부드러운 애니메이션 효과 */
-        }
-    </style>
 </head>
 <body>
 
     <h2 class="rotate">
-        <span>H</span><span>y</span><span>u</span><span>k</span><span>d</span><span>r</span><span>o</span><span>i</span><span>a</span><span>n</span><span>s</span>
+        <span>H</span>
+        <span>y</span>
+        <span>u</span>
+        <span>k</span>
+        <span>d</span>
+        <span>r</span>
+        <span>o</span>
+        <span>i</span>
+        <span>a</span>
+        <span>n</span>
+        <span>s</span>
     </h2>
 
-    <script>
-        // 글자 요소 가져오기
-        const letters = document.querySelectorAll(".rotate span");
-
-        function animateLetters() {
-            letters.forEach((letter, index) => {
-                setTimeout(() => {
-                    letter.style.fontWeight = "900"; // 굵게 변경
-                    setTimeout(() => {
-                        letter.style.fontWeight = "100"; // 다시 원래대로
-                    }, 1000); // 0.3초 후 원래 굵기로
-                }, index * 100); // 각 글자의 애니메이션을 0.15초 간격으로 실행
-            });
-        }
-
-        // 일정 간격으로 반복 실행
-        setInterval(animateLetters, 2000); // 2초마다 반복 실행
-    </script>
-
+    
+    <script src="script.js"></script>
 </body>
 </html>
