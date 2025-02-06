@@ -17,6 +17,12 @@ body {
     font-family: 'Pretendard', sans-serif;
 }
 
+.shortcut-images {
+    display: flex;
+    gap: 20px!important; /* 이미지 사이 간격 */}
+    
+    .shortcut-images a {
+        text-decoration: none!important;}
 
 
 h5 {
@@ -25,12 +31,7 @@ h5 {
 
 }
 
-.shortcut-images {
-    display: flex;
-    gap: 20px!important; /* 이미지 사이 간격 */}
-    
-    .shortcut-images a {
-        text-decoration: none!important;}
+
 
 
 body {
