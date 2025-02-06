@@ -24,16 +24,11 @@ body {
     .shortcut-images a {
         text-decoration: none!important;}
 
-
 h5 {
     font-weight: 700;
     font-size: 50px;
 
 }
-
-
-
-
 body {
     display: flex;
     flex-direction: column;
@@ -92,7 +87,11 @@ background-color: #f8f8f8
 }
 
 .contents pre {
-    line-height: 1.5
+    line-height: 0.2
+}
+
+.h6 {
+    text-align: center
 }
 
 .footer {
