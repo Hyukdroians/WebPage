@@ -258,8 +258,8 @@ animation: scrollDown-mobile 10s linear infinite,changeWeight 4s ease-in-out inf
 
     .archive-images {
     display: flex;
-    gap: 20px; /* 이미지 사이 간격 */}
+    gap: 20px!important; /* 이미지 사이 간격 */}
     
     .archive-images a {
-        text-decoration: none;}
+        text-decoration: none!important;}
 
