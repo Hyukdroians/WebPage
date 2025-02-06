@@ -15,6 +15,7 @@
 
 body {
     font-family: 'Pretendard', sans-serif;
+    overflow: hidden;
 }
 
 .shortcut-images {
@@ -113,6 +114,7 @@ background-color: #f8f8f8
     white-space: nowrap; /* 줄 바꿈 방지 */
     animation: marquee 25s linear infinite; /* 애니메이션 적용 */
 }
+
 
 @keyframes marquee {
     0% {
