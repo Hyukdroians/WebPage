@@ -17,6 +17,16 @@ body {
     font-family: 'Pretendard', sans-serif;
 }
 
+.rotate {
+    animation: scrollDown 10s linear infinite,changeWeight 4s ease-in-out infinite;
+    text-align: center;
+    white-space: nowrap;
+    margin: 0;
+    font-size: 5rem;
+    font-weight: 999;
+    letter-spacing: -0.13em;
+}
+
 .rotate span {
             display: inline-block;
             font-weight: 400;
