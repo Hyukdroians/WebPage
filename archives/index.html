@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/woff2/PretendardVariable.woff2">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- 외부 CSS 파일 연결 -->
     <title>Hyukdroians</title>
-    <style>
-        .rotate span {
-            display: inline-block;
-            font-weight: 400; /* 기본 글자 굵기 */
-            transition: font-weight 0.5s ease-in-out; /* 부드러운 애니메이션 */
-        }
-    </style>
 </head>
 <body>
+    <!-- 로딩 화면 -->
+    <div id="loadingScreen">
+        <div class="spinner"></div>
+        <p>로딩 중...</p>
+    </div>
+
     <div class="container">
         <nav class="gnb">
             <h2 class="rotate">
@@ -60,24 +58,7 @@
         <p>hyukdroians@naver.com / twitter @hyukdroians / instagram @hy.ukie / high school student, 1st grade / studying html+css</p>
     </footer>
 
-    <script>
-        // "Hyukdroians" 글자 애니메이션
-        const letters = document.querySelectorAll(".rotate span");
-
-        function animateLetters() {
-            letters.forEach((letter, index) => {
-                setTimeout(() => {
-                    letter.style.fontWeight = "900"; // 굵게 변경
-                    setTimeout(() => {
-                        letter.style.fontWeight = "100"; // 다시 원래대로
-                    }, 1300); // 0.3초 후 원래 굵기로
-                }, index * 150); // 각 글자의 애니메이션을 0.15초 간격으로 실행
-            });
-        }
-
-        // 일정 간격으로 반복 실행
-        setInterval(animateLetters, 2000); // 2초마다 반복 실행
-    </script>
-
+    <!-- 외부 JavaScript 파일 연결 -->
+    <script src="scripts.js"></script>
 </body>
 </html>
