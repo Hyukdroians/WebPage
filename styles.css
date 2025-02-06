@@ -46,7 +46,7 @@ body {
     text-align: center;
     white-space: nowrap;
     margin: 0;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 999;
     letter-spacing: -0.13em;
     margin-bottom: 20px; /* LNB와 간격 추가 */
@@ -64,6 +64,7 @@ body {
         flex-direction: column;
         align-items: center; /* 가로 중앙 정렬 */
         justify-content: center; /* 세로 중앙 정렬 */
+     
     }
 
     .lnb ul {
@@ -75,7 +76,7 @@ body {
     }
 
     .lnb li {
-        margin: 10px 0; /* 링크 간격 추가 */
-        font-size: 20px; /* 글자 크기 조정 */
+        margin: 8px 0; /* 링크 간격 추가 */
+        font-size: 15px; /* 글자 크기 조정 */
     }
 }
