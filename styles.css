@@ -19,7 +19,8 @@ body {
         flex-direction: column;
         justify-content: center; /* 세로 중앙 정렬 */
         align-items: center; /* 가로 중앙 정렬 */
-        height: 100vh; /* 전체 화면 높이 사용 */
+        height: 100vh; /* 화면 전체 높이 사용 */
+        overflow: hidden; /* 스크롤 방지 */
         text-align: center; /* 텍스트 중앙 정렬 */
 }
 
@@ -31,10 +32,8 @@ body {
     font-size: 5rem;
     font-weight: 999;
     letter-spacing: -0.13em;
-    position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* 정가운데 정렬 */
+    margin-bottom: 20px; /* LNB와 간격 추가 */
+
 }
 
 .rotate span {
@@ -44,16 +43,10 @@ body {
         }
 
  .lnb {
-        height: 100vh; /* 화면 높이 전체 사용 */
-        display: flex;
+    display: flex;
         flex-direction: column;
-        justify-content: center; /* 세로 중앙 정렬 */
         align-items: center; /* 가로 중앙 정렬 */
-        text-align: center; /* 텍스트 중앙 정렬 */
-     position: absolute;
-        top: 65%; /* rotate보다 아래 배치 */
-        left: 50%;
-        transform: translate(-50%, -50%);
+        justify-content: center; /* 세로 중앙 정렬 */
     }
 
     .lnb ul {
