@@ -15,6 +15,12 @@
 
 body {
     font-family: 'Pretendard', sans-serif;
+    display: flex;
+        flex-direction: column;
+        justify-content: center; /* 세로 중앙 정렬 */
+        align-items: center; /* 가로 중앙 정렬 */
+        height: 100vh; /* 전체 화면 높이 사용 */
+        text-align: center; /* 텍스트 중앙 정렬 */
 }
 
 .rotate {
@@ -25,6 +31,10 @@ body {
     font-size: 5rem;
     font-weight: 999;
     letter-spacing: -0.13em;
+    position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* 정가운데 정렬 */
 }
 
 .rotate span {
@@ -32,3 +42,29 @@ body {
             font-weight: 400;
             transition: font-weight 0.3s ease-in-out; /* 부드러운 애니메이션 효과 */
         }
+
+ .lnb {
+        height: 100vh; /* 화면 높이 전체 사용 */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* 세로 중앙 정렬 */
+        align-items: center; /* 가로 중앙 정렬 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+     position: absolute;
+        top: 65%; /* rotate보다 아래 배치 */
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .lnb ul {
+        display: flex;
+        flex-direction: column; /* 세로 정렬 */
+        align-items: center; /* 리스트 항목 중앙 정렬 */
+        padding: 0;
+    }
+
+    .lnb li {
+        margin: 10px 0; /* 링크 간격 추가 */
+        font-size: 20px; /* 글자 크기 조정 */
+    }
+}
