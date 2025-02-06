@@ -32,6 +32,8 @@
 
 body {
     font-family: 'Pretendard', sans-serif;
+    background-color: #121212; /* 배경색을 어두운 색으로 변경 */
+    color: #ffffff; /* 기본 텍스트 색상 변경 */
     display: flex;
         flex-direction: column;
         justify-content: center; /* 세로 중앙 정렬 */
@@ -78,5 +80,20 @@ body {
     .lnb li {
         margin: 8px 0; /* 링크 간격 추가 */
         font-size: 15px; /* 글자 크기 조정 */
-    }
+        a:link {
+  color : white;
+  text-decoration: none;
+}
+    a:visited {
+  color : white;
+  text-decoration: none;
+}
+    a:hover {
+  color : skyblue;
+  text-decoration: underline;
+}
+    a:active {
+  color : deepskyblue;
+  text-decoration: none;
+}
 }
