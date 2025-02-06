@@ -82,6 +82,6 @@ body {
 
 @media (max-width: 600px) {
     .rotate {
-        font-size: 3rem; /* 모바일에서 글자 크기 조정 */
+        font-size: 0.5rem; /* 모바일에서 글자 크기 조정 */
     }
 }
