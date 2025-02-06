@@ -149,7 +149,7 @@ background-color: #f8f8f8
 }
 
 .rotate {
-    animation: scrollDown 28s linear infinite,changeWeight 4s ease-in-out infinite;
+    animation: scrollDown 10s linear infinite,changeWeight 4s ease-in-out infinite;
     transform: rotate(90deg);
     transform-origin: left bottom; /* 회전 중심을 조정 */
     white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
