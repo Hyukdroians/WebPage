@@ -20,8 +20,7 @@
     display: flex; /* Flexbox 적용 */
     justify-content: center; /* 가로 가운데 정렬 */
     align-items: center; /* 세로 가운데 정렬 */
-    background: #121212;
-    opacity: 0.8;
+    background: #000000;
     z-index: 99;
 }
 
