@@ -1,7 +1,3 @@
-const fullscreen = element => {
-  element.requestFullscreen()
-}
-
 const letters = document.querySelectorAll(".rotate span");
 
         function animateLetters() {
