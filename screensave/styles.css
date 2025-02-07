@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Pretendard, sans-serif;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: swap;
+    src: url('/woff2/PretendardVariable.woff2') format('woff2-variations');
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: #000000; /* 배경색을 어두운 색으로 변경 */
+    color: #2b3346; /* 기본 텍스트 색상 변경 */
+    display: flex;
+        flex-direction: column;
+        justify-content: center; /* 세로 중앙 정렬 */
+        align-items: center; /* 가로 중앙 정렬 */
+        height: 100vh; /* 화면 전체 높이 사용 */
+        overflow: hidden; /* 스크롤 방지 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.rotate {
+    animation: scrollDown 10s linear infinite,changeWeight 4s ease-in-out infinite;
+    text-align: center;
+    white-space: nowrap;
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: 999;
+    letter-spacing: -0.13em;
+    margin-bottom: 20px; /* LNB와 간격 추가 */
+
+}
+
+.rotate span {
+            display: inline-block;
+            font-weight: 400;
+            transition: font-weight 0.3s ease-in-out; /* 부드러운 애니메이션 효과 */
+        }
+
