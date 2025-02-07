@@ -22,6 +22,7 @@
     align-items: center; /* 세로 가운데 정렬 */
     background: #0A0A0A;
     z-index: 99;
+    flex-direction: column; /* 요소들을 세로로 배치 */
 }
 
 #load > img {

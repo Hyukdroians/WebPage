@@ -26,27 +26,28 @@
 
 <script>
   const loadingPage = document.getElementById("load");
+  const loadingImg = loadingPage.querySelector("img");
 
-  // 5초 이상 로딩되면 메시지 추가
   setTimeout(() => {
     const message = document.createElement("p");
-    message.textContent = "네트워크 연결 상태에 따라 페이지 로딩 속도가 달라집니다.";
+    message.textContent = "페이지 로딩 중입니다..";
     message.style.color = "white";
     message.style.fontSize = "15px";
-    message.style.position = "absolute";
-    message.style.bottom = "50px";
-    loadingPage.appendChild(message);
+    message.style.marginTop = "10px"; // 이미지와 간격 조정
+    message.style.textAlign = "center";
+    message.style.display = "block"; // 문구를 아래로 배치
+    
+    // loading.gif 아래에 문구 추가
+    loadingImg.insertAdjacentElement("afterend", message);
   }, 3500);
 
-  // 로딩 완료 후 화면 숨기기
   window.onload = function () {
     setTimeout(() => {
       loadingPage.style.display = "none";
     }, 3000); // 3초 후 숨김 (필요하면 더 늘릴 수 있음)
   };
-
-    
 </script>
+
     
     <h2 class="rotate">
         <span>H</span>
