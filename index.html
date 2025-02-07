@@ -10,7 +10,6 @@
     <meta property="og:title" content="hyukdroians' web Portfolio">
     <meta property="og:description" content="2024 10 20 ~">
     <meta property="og:image" content="/opengraph.png">
-    <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:domain" content="hyukdroians.kro.kr">
 <meta property="twitter:url" content="https://hyukdroians.kro.kr">
@@ -27,28 +26,24 @@
 <script>
   const loadingPage = document.getElementById("load");
   const loadingImg = loadingPage.querySelector("img");
-
-  setTimeout(() => {
+    setTimeout(() => {
     const message = document.createElement("p");
     message.textContent = "페이지 로딩 중입니다..";
     message.style.color = "white";
     message.style.fontSize = "15px";
-    message.style.marginTop = "10px"; // 이미지와 간격 조정
+    message.style.marginTop = "10px"; 
     message.style.textAlign = "center";
-    message.style.display = "block"; // 문구를 아래로 배치
+    message.style.display = "block"; 
     
-    // loading.gif 아래에 문구 추가
     loadingImg.insertAdjacentElement("afterend", message);
   }, 3500);
 
   window.onload = function () {
     setTimeout(() => {
       loadingPage.style.display = "none";
-    }, 3000); // 3초 후 숨김 (필요하면 더 늘릴 수 있음)
+    }, 3000);
   };
 </script>
-
-    
     <h2 class="rotate">
         <span>H</span>
         <span>y</span>
@@ -62,7 +57,6 @@
         <span>n</span>
         <span>s</span>
     </h2>
-    
     <div class="content-area">
             <aside class="lnb">
                 <h6></h6>
@@ -70,11 +64,10 @@
                 <ul>
                     <li><a href="/archives">Archives</a></li>
                     <li><a href="/about/index.html">About</a></li>
+                    <li><a href="/screensave/index.html">Screensaver</a></li>
                 </ul>
             </aside>
     </div>
-
-    
     <script src="script.js"></script>
 </body>
 </html>
