@@ -35,7 +35,7 @@ Coloris({
   theme: 'default',
   themeMode: 'dark',
   alpha: true,
-  clearButton: true,
+  closeButton: true,
   format: 'hex',
   swatches: ['#2b3346', '#12463f', '#4c4021', '#4e290b', '#561d0e'],
   inline: false,
