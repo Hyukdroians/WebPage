@@ -55,7 +55,7 @@ load();
 
 
 
-let message = 'Have a good day!';
+let message = 'hYuKdRoIAnS';
 let messageX;
 let anthony;
 let topLayer;

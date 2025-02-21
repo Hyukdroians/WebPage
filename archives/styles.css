@@ -196,7 +196,7 @@ background-color: #4a4a4a
 
 
 /* 모바일 화면에 맞춘 스타일 */
-@media (max-width: 600px) {
+@media (max-width: 620px) {
   .container {
     flex-direction: column;
   }
@@ -231,6 +231,7 @@ background-color: #4a4a4a
     .lnb ul {
         align-items: center; /* 리스트 항목 중앙 정렬 */
         padding: 0;
+        font-size: 13.5px
     }
 
     
