@@ -5,6 +5,11 @@
     font-family: Pretendard, sans-serif;
 }
 
+html {
+    background-color: #121212; /* 기본 배경색 (JavaScript로 덮어씌워짐) */
+    transition: background-color 0.5s ease; /* 배경색 변경 시 부드러운 전환 */
+}
+
 @font-face {
     font-family: 'Pretendard';
     font-weight: 45 920;
@@ -29,22 +34,22 @@
     z-index: 100;
 }
 
-
 body {
     font-family: 'Pretendard', sans-serif;
-    background-color: #121212; /* 배경색을 어두운 색으로 변경 */
-    color: #ffffff; /* 기본 텍스트 색상 변경 */
+    background-color: #121212; /* 기본 배경색 (JavaScript로 덮어씌워짐) */
+    color: #ffffff; /* 기본 텍스트 색상 (JavaScript로 덮어씌워짐) */
     display: flex;
-        flex-direction: column;
-        justify-content: center; /* 세로 중앙 정렬 */
-        align-items: center; /* 가로 중앙 정렬 */
-        height: 100vh; /* 화면 전체 높이 사용 */
-        overflow: hidden; /* 스크롤 방지 */
-        text-align: center; /* 텍스트 중앙 정렬 */
+    flex-direction: column;
+    justify-content: center; /* 세로 중앙 정렬 */
+    align-items: center; /* 가로 중앙 정렬 */
+    height: 100vh; /* 화면 전체 높이 사용 */
+    overflow: hidden; /* 스크롤 방지 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    transition: background-color 0.5s ease; /* 배경색 변경 시 부드러운 전환 */
 }
 
 .rotate {
-    animation: scrollDown 10s linear infinite,changeWeight 4s ease-in-out infinite;
+    animation: scrollDown 10s linear infinite, changeWeight 4s ease-in-out infinite;
     text-align: center;
     white-space: nowrap;
     margin: 0;
@@ -52,48 +57,52 @@ body {
     font-weight: 999;
     letter-spacing: -0.13em;
     margin-bottom: 20px; /* LNB와 간격 추가 */
-
+    transition: color 0.5s ease; /* 텍스트 색상 변경 시 부드러운 전환 */
 }
 
 .rotate span {
-            display: inline-block;
-            font-weight: 400;
-            transition: font-weight 0.3s ease-in-out; /* 부드러운 애니메이션 효과 */
-        }
+    display: inline-block;
+    font-weight: 400;
+    transition: font-weight 0.3s ease-in-out; /* 부드러운 애니메이션 효과 */
+}
 
- .lnb {
+.lnb {
     display: flex;
-        flex-direction: column;
-        align-items: center; /* 가로 중앙 정렬 */
-        justify-content: center; /* 세로 중앙 정렬 */
-     
-    }
+    flex-direction: column;
+    align-items: center; /* 가로 중앙 정렬 */
+    justify-content: center; /* 세로 중앙 정렬 */
+}
 
-    .lnb ul {
-        display: flex;
-        flex-direction: column; /* 세로 정렬 */
-        align-items: center; /* 리스트 항목 중앙 정렬 */
-        padding: 0;
-        list-style: none;
-    }
+.lnb ul {
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center; /* 리스트 항목 중앙 정렬 */
+    padding: 0;
+    list-style: none;
+}
 
-    .lnb li {
-        margin: 8px 0; /* 링크 간격 추가 */
-        font-size: 15px; /* 글자 크기 조정 */
-        a:link {
-  color : white;
-  text-decoration: none;
+.lnb li {
+    margin: 8px 0; /* 링크 간격 추가 */
+    font-size: 15px; /* 글자 크기 조정 */
 }
-    a:visited {
-  color : white;
-  text-decoration: none;
+
+.lnb a:link {
+    color: #ffffff; /* 기본 색상 (JavaScript로 덮어씌워짐) */
+    text-decoration: none;
+    transition: color 0.3s ease; /* 색상 변경 시 부드러운 전환 */
 }
-    a:hover {
-  color : skyblue;
-  text-decoration: underline;
+
+.lnb a:visited {
+    color: #ffffff; /* 기본 색상 (JavaScript로 덮어씌워짐) */
+    text-decoration: none;
 }
-    a:active {
-  color : deepskyblue;
-  text-decoration: none;
+
+.lnb a:hover {
+    color: skyblue;
+    text-decoration: underline;
 }
+
+.lnb a:active {
+    color: deepskyblue;
+    text-decoration: none;
 }

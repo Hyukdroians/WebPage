@@ -56,9 +56,12 @@
   window.onload = function () {
     setTimeout(() => {
       loadingPage.style.display = "none";
+      // 로딩이 끝난 후 랜덤 색상 적용
+      applyRandomColors();
     }, 3000);
   };
 </script>
+
     <h2 class="rotate">
         <span>H</span>
         <span>y</span>
@@ -84,6 +87,9 @@
                 </ul>
             </aside>
     </div>
+    
+    <!-- JavaScript 파일들 -->
     <script src="script.js"></script>
+    <script src="random-colors.js"></script>
 </body>
 </html>
