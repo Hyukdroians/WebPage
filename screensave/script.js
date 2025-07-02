@@ -39,7 +39,7 @@ Coloris({
   format: 'hex',
   swatches: ['#2b3346', '#12463f', '#4c4021', '#4e290b', '#561d0e'],
   inline: false,
-  defaultColor: '#2b3346',
+  defaultColor: '#004cff',
   bound: false, // 기본 위치 조정을 방지
   onOpen: () => {
     setTimeout(() => {
