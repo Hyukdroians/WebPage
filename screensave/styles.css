@@ -16,7 +16,7 @@
 body {
     font-family: 'Pretendard', sans-serif;
     background-color: #000000; /* 배경색을 어두운 색으로 변경 */
-    color: #2b3346; /* 기본 텍스트 색상 변경 */
+    color: #004cff; /* 기본 텍스트 색상 변경 */
     display: flex;
         flex-direction: column;
         justify-content: center; /* 세로 중앙 정렬 */
