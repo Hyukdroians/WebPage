@@ -15,15 +15,15 @@
 
 body {
     font-family: 'Pretendard', sans-serif;
-    background-color: #000000; /* 배경색을 어두운 색으로 변경 */
-    color: #004cff; /* 기본 텍스트 색상 변경 */
+    background-color: #000000; 
+    color: #004cff;
     display: flex;
         flex-direction: column;
-        justify-content: center; /* 세로 중앙 정렬 */
-        align-items: center; /* 가로 중앙 정렬 */
-        height: 100vh; /* 화면 전체 높이 사용 */
-        overflow: hidden; /* 스크롤 방지 */
-        text-align: center; /* 텍스트 중앙 정렬 */
+        justify-content: center;
+        align-items: center;
+        height: 100vh; 
+        overflow: hidden;
+        text-align: center; 
 }
 
 .rotate {
@@ -34,14 +34,14 @@ body {
     font-size: 3.5rem;
     font-weight: 999;
     letter-spacing: -0.13em;
-    margin-bottom: 20px; /* LNB와 간격 추가 */
+    margin-bottom: 20px;
 
 }
 
 .rotate span {
             display: inline-block;
             font-weight: 400;
-            transition: font-weight 0.3s ease-in-out; /* 부드러운 애니메이션 효과 */
+            transition: font-weight 0.3s ease-in-out;
         }
 
 .clr-picker {

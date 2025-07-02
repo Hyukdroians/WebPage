@@ -106,7 +106,6 @@ a:active {
   background:none;
 }
 
-/* 반응형 */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
