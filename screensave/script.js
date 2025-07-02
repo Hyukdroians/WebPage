@@ -6,7 +6,7 @@ function animateLetters() {
       setTimeout(() => {
           letter.style.fontWeight = "900"; // 굵게 변경
           setTimeout(() => {
-              letter.style.fontWeight = "100"; // 원래대로 복귀
+              letter.style.fontWeight = "45"; // 원래대로 복귀
           }, 1000);
       }, index * 100);
   });
