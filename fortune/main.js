@@ -1,169 +1,91 @@
+// main.js (랜덤 배경색상 기능 포함, 스크래치 요소 없음)
+
+// 요소 선택
 const contentElem = document.querySelector('.content');
 const fortuneElem = document.querySelector('.fortune');
 const dateElem = document.querySelector('.title-date');
 const itemElem = document.querySelector('.btm-item');
 const alphaElem = document.querySelector('.btm-alpha');
 
-const today = new Date(); // 현재 날짜와 시간을 가져옴
-const year = today.getFullYear(); // 현재 연도를 가져옴
-const month = String(today.getMonth() + 1).padStart(2, '0'); // 현재 월을 가져오고 두자리 형태로 변환
-const date = String(today.getDate()).padStart(2, '0'); // 현재 일을 가져오고 두자리 형태로 변환
+// 날짜 정보
+const today = new Date();
+const year = today.getFullYear();
+const month = String(today.getMonth() + 1).padStart(2, '0');
+const date = String(today.getDate()).padStart(2, '0');
 
-const dateArr = [year, month, date]; // 배열에 년, 월, 일을 차례로 담음
+// 초성 배열
+const consonants = [
+  'ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ',
+  'ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'
+];
 
-
-// 초성 배열 생성
-const consonants = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
-
-function getRandomConsonants() {
-  const first = consonants[Math.floor(Math.random() * consonants.length)];
-  const second = consonants[Math.floor(Math.random() * consonants.length)];
-  const randomCons = first + second;
-  alphaElem.innerText = `${randomCons}`;
-}
-
-
-function setDate() {
-  dateElem.innerText = `${year}${month}${date}`;
-}
-
-// function setLuckyNum() {
-//   numberElem.innerText = `${Math.round(Math.random() * 99)}`;
-// }
-
-
-let json1;
-let json2;
-
-async function load() {
-  // 파일 읽어 오기
-  const response1 = await fetch('./fortune.json');
-  const response2 = await fetch('./item.json');
-  // JSON으로 해석
-  json1 = await response1.json();
-  json2 = await response2.json();
-
-  let ranNum1 = Math.floor(Math.random() * json1.length);
-  let ranNum2 = Math.floor(Math.random() * json2.length);
-  fortuneElem.innerText = `${json1[ranNum1].fortune}`;
-  itemElem.innerText = `${json2[ranNum2].item}`;
-}
-
-
-load();
-
-
-
-
-let message = 'hYuKdRoIAnS';
-let messageX;
-let anthony;
-let topLayer;
-
-const xSpeed = 2.4;
-const ySpeed = 0.05;
-const amplitude = 50;
-const verticalLetterSpacing = 7;
-
-function preload() {
-  anthony = loadFont('./font/Anthony.otf');
-}
-
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  topLayer = createGraphics(width, height);
-
-  textFont(anthony);
-  messageX = width;
-  
-  topLayer.strokeWeight(50);
-  topLayer.stroke(rgbVals[0] > 200 ? rgbVals[0] - 50 : rgbVals[0], rgbVals[1] > 220 ? rgbVals[1] - 50 : rgbVals[1], rgbVals[2] > 220 ? rgbVals[2] - 50 : rgbVals[2]);
-}
-
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  topLayer.resizeCanvas(windowWidth, windowHeight);
-}
-
-const wrapElem = document.querySelector('.content .wrap');
-
-function setOpacity() {
-  wrapElem.style.opacity = 1;
-}
-
-document.addEventListener("mousedown", setOpacity, { once: true });
-document.addEventListener("touchstart", setOpacity, { once: true });
-
-
-function draw() {
-  
-  background(255);
-  fill(0);
-
-  textSize(180);
-
-  for (let i = 0; i < message.length; i++) {
-    const letterX = messageX + textWidth(message.substring(0, i));
-
-    const letterOffset = i * verticalLetterSpacing;
-    const letterY = height / 2 +
-      sin((frameCount - letterOffset) * ySpeed) * amplitude;
-
-    text(message[i], letterX, letterY);
-  }
-
-  messageX -= xSpeed;
-  if (messageX < - textWidth(message)) {
-    messageX = width + 50;
-  }
-
-  if (mouseIsPressed) {
-    topLayer.line(mouseX, mouseY, pmouseX, pmouseY);
-  }
-  image(topLayer, 0, 0);
-
-}
-
-
-setDate();
-// setLuckyNum();
-getRandomConsonants()
-
-let rgbVals;
-let tempColor;
-
-rgbVals = randomRGB();
-tempColor = "rgb(" + rgbVals[0] + ", " + rgbVals[1] + ", " + rgbVals[2] + ")";
-contentElem.style.backgroundColor = `${tempColor}`;
-
-
-
-
-// setTimeout(() => {
-//   contentElem.style.opacity = 1;
-// }, 600);
-
-
-
+// 랜덤 RGB 생성 (밝기 제한)
 function randomNum() {
   return Math.floor(Math.random() * 256);
 }
-
-
 function randomRGB() {
   let red = randomNum();
   let green = randomNum();
   let blue = randomNum();
-  let rgb;
-  let luma = 0.2126 * red + 0.7152 * green + 0.0722 * blue; // per ITU-R BT.709
+  let luma = 0.2126 * red + 0.7152 * green + 0.0722 * blue; // 밝기 계산
   while (luma < 70 || luma > 230) {
     red = randomNum();
     green = randomNum();
     blue = randomNum();
-    luma = 0.2126 * red + 0.7152 * green + 0.0722 * blue; // per ITU-R BT.709
+    luma = 0.2126 * red + 0.7152 * green + 0.0722 * blue;
   }
-  rgb = [red,green,blue];
-  console.log(luma);
-  return rgb;
+  return [red, green, blue];
 }
+
+// 랜덤 배경색 적용
+function setRandomBgColor() {
+  const rgb = randomRGB();
+  const colorString = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+  contentElem.style.backgroundColor = colorString;
+}
+
+// 날짜 표시
+function setDate() {
+  dateElem.innerText = `${year}${month}${date}`;
+}
+
+// 랜덤 초성 표시
+function setRandomConsonants() {
+  const first = consonants[Math.floor(Math.random() * consonants.length)];
+  const second = consonants[Math.floor(Math.random() * consonants.length)];
+  alphaElem.innerText = `${first}${second}`;
+}
+
+// 행운, 음식 데이터 불러오기
+async function load() {
+  const response1 = await fetch('./fortune.json');
+  const response2 = await fetch('./item.json');
+  const json1 = await response1.json();
+  const json2 = await response2.json();
+  const ranNum1 = Math.floor(Math.random() * json1.length);
+  const ranNum2 = Math.floor(Math.random() * json2.length);
+  fortuneElem.innerText = json1[ranNum1].fortune;
+  itemElem.innerText = json2[ranNum2].item;
+}
+
+// opacity 효과 (최초 클릭 시)
+function setOpacity() {
+  const wrapElem = document.querySelector('.content .wrap');
+  wrapElem.style.opacity = 1;
+}
+
+// 초기화
+window.addEventListener('DOMContentLoaded', () => {
+  setDate();
+  setRandomConsonants();
+  load();
+  setRandomBgColor(); // 첫 진입시 배경색 랜덤 적용
+  document.addEventListener('mousedown', () => {
+    setOpacity();
+    setRandomBgColor(); // 클릭시 배경색도 랜덤 변경
+  }, { once: true });
+  document.addEventListener('touchstart', () => {
+    setOpacity();
+    setRandomBgColor(); // 터치시 배경색도 랜덤 변경
+  }, { once: true });
+});
