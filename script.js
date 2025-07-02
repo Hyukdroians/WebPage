@@ -47,7 +47,7 @@ function applyRandomColor(element) {
 function createVariableWeightTitle() {
     const titleElement = document.getElementById('titleText');
     const text = titleElement.textContent;
-    const weights = [45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45]; // 10개 글자에 대한 weight
+    const weights = [450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450]; // 10개 글자에 대한 weight
     
     titleElement.innerHTML = '';
     
