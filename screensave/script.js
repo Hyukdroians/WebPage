@@ -1,24 +1,66 @@
 const letters = document.querySelectorAll(".rotate span");
 const text = document.getElementById("text");
 
+let animationInterval; // 애니메이션 interval을 저장할 변수
+let isAnimationRunning = true; // 애니메이션 상태를 추적하는 변수
+
 function animateLetters() { 
   letters.forEach((letter, index) => {
       setTimeout(() => {
           letter.style.fontWeight = "900"; // 굵게 변경
           setTimeout(() => {
-              letter.style.fontWeight = "45"; // 원래대로 복귀
+              letter.style.fontWeight = "100"; // 원래대로 복귀
           }, 1000);
       }, index * 100);
   });
 }
-setInterval(animateLetters, 2000); // 2초마다 애니메이션 실행
+
+// 애니메이션 시작 함수
+function startAnimation() {
+    if (!isAnimationRunning) {
+        animationInterval = setInterval(animateLetters, 1850);
+        isAnimationRunning = true;
+    }
+}
+
+// 애니메이션 정지 함수
+function stopAnimation() {
+    if (isAnimationRunning) {
+        clearInterval(animationInterval);
+        isAnimationRunning = false;
+        // 모든 글자를 기본 굵기로 되돌리기
+        letters.forEach(letter => {
+            letter.style.fontWeight = "450";
+        });
+    }
+}
+
+// 애니메이션 토글 함수
+function toggleAnimation() {
+    if (isAnimationRunning) {
+        stopAnimation();
+    } else {
+        startAnimation();
+    }
+}
+
+// 스페이스 키 이벤트 리스너 추가
+document.addEventListener("keydown", (event) => {
+    if (event.code === "Space") {
+        event.preventDefault(); // 기본 스페이스 키 동작 방지 (페이지 스크롤 등)
+        toggleAnimation();
+    }
+});
+
+// 초기 애니메이션 시작
+animationInterval = setInterval(animateLetters, 1850);
 
 // Coloris 위젯 관련 코드
 // Coloris가 적용될 input 요소 생성
 const colorPicker = document.createElement("input");
 colorPicker.type = "text";
 colorPicker.setAttribute("data-coloris", "");
-colorPicker.value = "#2b3346";
+colorPicker.value = "#004cff";
 
 // input 요소가 실제 렌더링되도록 하면서 눈에 보이지 않게 설정
 colorPicker.style.position = "absolute";
@@ -64,4 +106,3 @@ text.addEventListener("dblclick", () => {
 colorPicker.addEventListener("change", (event) => {
   text.style.color = event.target.value;
 });
-
