@@ -16,7 +16,7 @@
 html, body {
   height: 100%;
   width: 100%;
-  overflow-x: hidden; /* 좌우 스크롤 막기 */
+  overflow-x: hidden;
   font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   scroll-behavior: smooth;
 
@@ -29,7 +29,7 @@ html, body {
 }
 
 .left-section {
-  width: 150px; /* 폭을 줄여서 글자가 더 가깝게 */
+  width: 150px;
   min-height: 100%;
   display: flex;
   align-items: center;
@@ -88,22 +88,22 @@ a:hover {
 a:active {
   text-decoration: none;
 }
-/* 스크롤바 스타일링 (웹킷 기반 브라우저) */
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 0.1px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
+  background:none;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
+  background: none;
+  border-radius: 0.0000001px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.5);
+  background:none;
 }
 
 /* 반응형 */
