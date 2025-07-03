@@ -1,85 +1,45 @@
-const letters = document.querySelectorAll(".rotate span");
-const text = document.getElementById("text");
+const letters = document.querySelectorAll(".h1");
+const text = document.getElementById("titleText");
 
-let animationInterval; // 애니메이션 interval을 저장할 변수
-let isAnimationRunning = true; // 애니메이션 상태를 추적하는 변수
-
-// Variable 폰트 Weight 적용 함수
 function createVariableWeightTitle() {
-    const titleElement = document.getElementById('text');
-    const textContent = titleElement.textContent || titleElement.innerText;
-    const weights = [450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450]; // 11개 글자에 대한 weight
+    const titleElement = document.getElementById('titleText');
+    const text = titleElement.textContent;
+    const weights = [450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450]; // 10개 글자에 대한 weight
     
     titleElement.innerHTML = '';
     
-    for (let i = 0; i < textContent.length; i++) {
+    for (let i = 0; i < text.length; i++) {
         const span = document.createElement('span');
-        span.textContent = textContent[i];
+        span.textContent = text[i];
         span.className = 'char';
-        span.style.fontWeight = weights[i] || 450;
+        span.style.fontWeight = weights[i] || 400;
         titleElement.appendChild(span);
     }
 }
 
-// Variable 폰트 애니메이션 함수
-function animateLetters() {
-    const letters = document.querySelectorAll("#text .char");
+function animateTitle() {
+    const letters = document.querySelectorAll("#titleText .char");
     
     letters.forEach((letter, index) => {
         setTimeout(() => {
             letter.style.fontWeight = "920"; // 최대 굵기로 변경
             setTimeout(() => {
-                letter.style.fontWeight = "100"; // 최소 굵기로 변경
+                letter.style.fontWeight = "100";
             }, 1000);
         }, index * 100);
     });
 }
 
-// 애니메이션 시작 함수
-function startAnimation() {
-    if (!isAnimationRunning) {
-        animationInterval = setInterval(animateLetters, 1850);
-        isAnimationRunning = true;
-    }
-}
-
-// 애니메이션 정지 함수
-function stopAnimation() {
-    if (isAnimationRunning) {
-        clearInterval(animationInterval);
-        isAnimationRunning = false;
-        // 모든 글자를 기본 굵기로 되돌리기
-        const letters = document.querySelectorAll("#text .char");
-        letters.forEach(letter => {
-            letter.style.fontWeight = "450";
-        });
-    }
-}
-
-// 애니메이션 토글 함수
-function toggleAnimation() {
-    if (isAnimationRunning) {
-        stopAnimation();
-    } else {
-        startAnimation();
-    }
-}
-
-// 스페이스 키 이벤트 리스너 추가
-document.addEventListener("keydown", (event) => {
-    if (event.code === "Space") {
-        event.preventDefault(); // 기본 스페이스 키 동작 방지 (페이지 스크롤 등)
-        toggleAnimation();
-    }
-});
-
 // 페이지 로드 시 초기 설정
 document.addEventListener('DOMContentLoaded', function() {
+    const leftSection = document.getElementById('leftSection');
+    const rightSection = document.getElementById('rightSection');
+    
     // Variable 폰트 Weight 적용
     createVariableWeightTitle();
     
-    // 초기 애니메이션 시작
-    animationInterval = setInterval(animateLetters, 1850);
+    // 타이틀 애니메이션 시작
+    setInterval(animateTitle, 1800); // 2초마다 애니메이션 실행
 });
 
 // Coloris 위젯 관련 코드
