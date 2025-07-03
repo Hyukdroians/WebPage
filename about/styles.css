@@ -48,6 +48,7 @@ html, body {
   transition: background 0.3s ease;
 }
 
+
 .content {
   text-align: center;
   z-index: 2;
@@ -76,6 +77,26 @@ html, body {
   align-items: center;
   width: 100%;
   height: 100%;
+}
+
+.text1 {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -0.06rem;
+  padding: 5px
+}
+
+.text2 {
+  letter-spacing: -0.06rem;
+  font-weight: 450;
+  padding: 5px
+}
+
+.text3 {
+  letter-spacing: -0.06rem;
+  font-weight: 450;
+  font-size: small;
+  padding: 5px
 }
 a:link {
   text-decoration: none;
