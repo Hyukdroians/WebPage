@@ -99,16 +99,16 @@ html, body {
   padding: 5px
 }
 a:link {
-  text-decoration: none;
+  color: inherit !important;
 }
 a:visited {
-  text-decoration: none;
+  color: inherit !important;
 }
 a:hover {
-  text-decoration: none;
+  color: inherit !important;
 }
 a:active {
-  text-decoration: none;
+  color: inherit !important;
 }
 
 ::-webkit-scrollbar {
