@@ -1,6 +1,3 @@
-// main.js (랜덤 배경색상 기능 포함, 스크래치 요소 없음)
-
-// 요소 선택
 const contentElem = document.querySelector('.content');
 const fortuneElem = document.querySelector('.fortune');
 const dateElem = document.querySelector('.title-date');
@@ -19,7 +16,7 @@ const consonants = [
   'ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'
 ];
 
-// 랜덤 RGB 생성 (밝기 제한)
+// 배경 랜덤
 function randomNum() {
   return Math.floor(Math.random() * 256);
 }
@@ -37,7 +34,6 @@ function randomRGB() {
   return [red, green, blue];
 }
 
-// 랜덤 배경색 적용
 function setRandomBgColor() {
   const rgb = randomRGB();
   const colorString = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
@@ -68,7 +64,7 @@ async function load() {
   itemElem.innerText = json2[ranNum2].item;
 }
 
-// opacity 효과 (최초 클릭 시)
+// opacity 효과
 function setOpacity() {
   const wrapElem = document.querySelector('.content .wrap');
   wrapElem.style.opacity = 1;
