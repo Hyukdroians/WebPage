@@ -29,54 +29,74 @@
     <meta name="twitter:description" content="Hyukdroians" />
     <meta name="twitter:image" content="/files/opengraph/opengraph.png" />
 
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            background-color: #06C755;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+  <style>
+    @font-face {
+    font-family: 'Pretendard Variable';
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: swap; src: local('Pretendard Variable'), url('/woff2/PretendardVariable.woff2') format('woff2-variations');
+      }
+      
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #06C755;
+      font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+    }
 
-        .iframe-wrap {
-            max-width: 100%;
-            max-height: 100%;
-            width: 800px; 
-            height: 450px; 
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            border-radius: 8px;
-            overflow: hidden;
-        }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* iframe을 수직 중앙 */
+    }
 
-        .iframe-wrap iframe {
-            display: block;
-            width: 100%;
-            height: 100%;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-        }
+    .iframe-wrap {
+      width: 800px;
+      height: 450px;
+      max-width: 100%;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
 
-        @media (max-width: 820px) {
-            .iframe-wrap {
-                width: calc(100% - 40px);
-                height: calc((100% - 40px) * 9 / 16);
-            }
-        }
-    </style>
+    .iframe-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      width: 100%;
+      padding: 31px 0;
+      margin-top: 30px;
+      text-align: center;
+      font-size: 14px;
+      color: #fff;=
+    }
+
+    @media (max-width: 820px) {
+      .iframe-wrap {
+        width: calc(100% - 40px);
+        height: calc((100% - 40px) * 9 / 16);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="iframe-wrap">
-        <iframe
-            src="https://embed.figma.com/proto/3qfuMdIZu4EqD3LKd2YMMo/%EC%A0%9C%EB%AA%A9-%EC%97%86%EC%9D%8C?page-id=0%3A1&node-id=3-34&p=f&viewport=-525%2C-39%2C0.74&scaling=scale-down&content-scaling=fixed&starting-point-node-id=15%3A74&embed-host=share"
-            allowfullscreen
-            title="Figma Embed"></iframe>
-    </div>
+  <div class="iframe-wrap">
+    <iframe 
+      src="https://embed.figma.com/proto/3qfuMdIZu4EqD3LKd2YMMo/%EC%A0%9C%EB%AA%A9-%EC%97%86%EC%9D%8C?page-id=0%3A1&node-id=3-34&p=f&viewport=-525%2C-39%2C0.74&scaling=scale-down&content-scaling=fixed&starting-point-node-id=15%3A74&embed-host=share" 
+      allowfullscreen
+      title="Figma Embed"></iframe>
+  </div>
+
+  <footer>
+      <P>최근 카카오톡 업데이트 "쓰는이에 집중"이라는</P>
+      <P>업데이트를 진행하였으나, 사용자의 편의성에 대해 생각조차 하지 않은 모습에</P>
+      <p>카카오톡의 대체제 라인을 떠올려, 만약 라인이 100% 네이버 서비스면 어떘을까,</p>
+      <P>라는 생각에 처음으로 UI 라이팅을 진행하게 되었다.</P>
+  </footer>
 </body>
 </html>
