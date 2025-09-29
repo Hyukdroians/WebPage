@@ -53,6 +53,7 @@ html, body {
   text-align: center;
   z-index: 2;
   transition: color 0.3s ease;
+  
 }
  
 
@@ -68,6 +69,7 @@ html, body {
 .title .char {
   display: inline-block;
   transition: font-weight 0.6s ease-in-out;
+  text-decoration: underline
 }
 
 .menu-container {
@@ -79,11 +81,15 @@ html, body {
   height: 100%;
 }
 
+.opengraph{
+   border-radius: 75%
+}
+
 .text1 {
   font-size: 25px;
   font-weight: 900;
   letter-spacing: -0.06rem;
-  padding: 5px
+  padding: 13px
 }
 
 .text2 {

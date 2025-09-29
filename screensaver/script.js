@@ -51,6 +51,19 @@ colorPicker.style.height = "40px";
 colorPicker.style.opacity = "0";
 document.body.appendChild(colorPicker);
 
+// 배경색 선택기 추가
+const colorPickerBg = document.createElement("input");
+colorPickerBg.type = "text";
+colorPickerBg.setAttribute("data-coloris", "");
+colorPickerBg.value = "#000000";
+colorPickerBg.style.position = "absolute";
+colorPickerBg.style.top = "60px";
+colorPickerBg.style.right = "10px";
+colorPickerBg.style.width = "40px";
+colorPickerBg.style.height = "40px";
+colorPickerBg.style.opacity = "0";
+document.body.appendChild(colorPickerBg);
+
 Coloris({
   el: colorPicker,
   theme: 'default',
@@ -62,24 +75,37 @@ Coloris({
   inline: false,
   defaultColor: '#004cff',
   bound: false,
-  onOpen: () => {
-    setTimeout(() => {
-      const picker = document.querySelector('.color-picker');
-      if (picker) {
-        picker.style.position = 'fixed';
-        picker.style.top = '50%';
-        picker.style.left = '50%';
-        picker.style.transform = 'translate(-50%, -50%)';
-        picker.style.zIndex = '9999';
-      }
-    }, 10);
-  }
+  // 위치 조정 코드 제거
+});
+
+Coloris({
+  el: colorPickerBg,
+  theme: 'default',
+  themeMode: 'dark',
+  alpha: true,
+  closeButton: true,
+  format: 'hex',
+  swatches: ['#000000', '#ffffff', '#004cff', '#2b3346', '#12463f'],
+  inline: false,
+  defaultColor: '#000000',
+  bound: false,
 });
 
 text.addEventListener("dblclick", () => {
   colorPicker.click();
 });
 
+// 배경 더블클릭 시 배경색 선택기 오픈 (텍스트 영역 제외)
+document.body.addEventListener("dblclick", (e) => {
+  if (e.target !== text) {
+    colorPickerBg.click();
+  }
+});
+
 colorPicker.addEventListener("change", (event) => {
   text.style.color = event.target.value;
+});
+
+colorPickerBg.addEventListener("change", (event) => {
+  document.body.style.backgroundColor = event.target.value;
 });

@@ -66,6 +66,7 @@ html, body {
 .title .char {
   display: inline-block;
   transition: font-weight 0.6s ease-in-out;
+  text-decoration: underline
 }
 
 
@@ -107,7 +108,7 @@ a:active {
   background:none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .container {
     flex-direction: column;
   }

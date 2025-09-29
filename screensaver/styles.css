@@ -19,7 +19,7 @@ html, body {
   overflow: hidden;
   font-family: 'Pretendard Variable', Arial, sans-serif;
   background-color: #000000; 
-  color: #004cff;
+  color: #7b7b7b;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,9 +48,3 @@ html, body {
   margin: 0;
 }
 
-.clr-picker {
-  position: fixed !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-}
