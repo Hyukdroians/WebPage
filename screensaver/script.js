@@ -41,8 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const colorPicker = document.createElement("input");
 colorPicker.type = "text";
 colorPicker.setAttribute("data-coloris", "");
-colorPicker.value = "#004cff";
-
+colorPicker.value = "#c7f5ffff";
 colorPicker.style.position = "absolute";
 colorPicker.style.top = "10px";
 colorPicker.style.right = "10px";
@@ -73,9 +72,8 @@ Coloris({
   format: 'hex',
   swatches: ['#2b3346', '#12463f', '#4c4021', '#4e290b', '#561d0e'],
   inline: false,
-  defaultColor: '#004cff',
+  defaultColor: '#c7f5ffff',
   bound: false,
-  // 위치 조정 코드 제거
 });
 
 Coloris({
@@ -85,15 +83,20 @@ Coloris({
   alpha: true,
   closeButton: true,
   format: 'hex',
-  swatches: ['#000000', '#ffffff', '#004cff', '#2b3346', '#12463f'],
+  swatches: ['#000000', '#949494ff', '#8897baff', '#2b3346', '#12463f'],
   inline: false,
-  defaultColor: '#000000',
+  defaultColor: '#000000ff',
   bound: false,
 });
 
-text.addEventListener("dblclick", () => {
-  colorPicker.click();
-});
+
+// 텍스트 터치 영역 버튼으로 색상 선택기 오픈
+const textTouchBtn = document.getElementById('textTouchBtn');
+if (textTouchBtn) {
+  textTouchBtn.addEventListener('click', () => {
+    colorPicker.click();
+  });
+}
 
 // 배경 더블클릭 시 배경색 선택기 오픈 (텍스트 영역 제외)
 document.body.addEventListener("dblclick", (e) => {

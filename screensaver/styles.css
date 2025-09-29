@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: 'Pretendard Variable';
   font-weight: 45 920;
@@ -48,3 +49,21 @@ html, body {
   margin: 0;
 }
 
+.texttoucharea {
+  position: relative;
+  display: inline-block;
+}
+
+.text-touch-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  margin: 0;
+}
