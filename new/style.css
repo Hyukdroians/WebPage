@@ -32,38 +32,36 @@
 
 .default {
   background-color: #4d4d4d;
-  width: 100vw;
-  height: 100vh;
-  max-width: 1920px;
-  max-height: 1000px;
+  width: 1920px;
+  height: 1000px;
   display: flex;
-  margin: 0 auto;
+  transform-origin: top left;
+  transform: scale(var(--layout-scale));
 }
 
 :root {
-  --design-width: 1920;
-  --scale: min(1, calc(100vw / var(--design-width)));
+  --design-width: 1920px;
+  --design-height: 1000px;
+  --layout-scale: clamp(0.5, calc(100vw / var(--design-width)), 1);
 }
 
 html, body {
   height: 100%;
   margin: 0;
-  overflow: hidden;
 }
-
+/* center the scaled layout and prevent page scroll */
 body {
   display: flex;
+  align-items: flex-start; /* keep top alignment */
   justify-content: center;
-  background-color: #4d4d4d;
+  overflow: hidden;
+  background-color: #4d4d4d; /* match container background */
 }
 
 .default .GNB {
   display: flex;
-  width: 100vw;
-  max-width: 1920px;
-  height: 10vh;
-  min-height: 60px;
-  max-height: 100px;
+  width: 1920px;
+  height: 100px;
   font-family:"LINESeedSans-Heavy";
   position: relative;
   align-items: center;
@@ -72,18 +70,15 @@ body {
 
 .default .logo {
   position: relative;
-  width: 5vw;
-  min-width: 60px;
-  max-width: 100px;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   background-color: #009DFF;
 }
 
 .default .navigation {
   position: relative;
-  width: calc(100vw - 5vw);
-  max-width: 1820px;
-  height: 100%;
+  width: 1820px;
+  height: 100px;
   background-color: #000000;
 }
 
@@ -106,25 +101,21 @@ body {
 }
 
 .default .project {
+  /* Removed absolute positioning to prevent hover layout shift */
   font-family: "LINESeedSans-Heavy";
   font-weight: 400;
   color: #ffffff;
-  font-size: min(1.25vw, 24px);
-  line-height: 1.2;
-  min-width: 120px;
-  min-height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 24px;
+  line-height: normal;
 }
 
 /* Add a bullet before each nav item and change to dashes on hover */
 .default .frame .div::before {
   content: "•";
-  display: inline-block;
-  margin-right: 8px;
+  display: block; /* put bullet on its own line */
+  margin: 0 0 6px 0; /* space below bullet */
   transition: all 0.12s ease;
-  white-space: nowrap;
+  white-space: nowrap; /* prevent wrapping when content changes */
   overflow: hidden;
 }
 /* When hovering the container, replace bullet with dashes */
@@ -135,27 +126,19 @@ body {
 }
 
 
-
-.default .div,
-.default .fortune,
-.default .about,
-.default .screensaver {
+.default .div {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block; 
   font-family: "LINESeedSans-Heavy", Helvetica;
   font-weight: 400;
   color: #ffffff;
-  font-size: min(1.25vw, 24px);
+  font-size: 24px;
   letter-spacing: 0;
-  line-height: 1.2;
-  min-width: 120px;
-  min-height: 48px;
+  line-height: 26px;
 }
 
 .default .frame .div:hover,
