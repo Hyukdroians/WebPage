@@ -32,38 +32,34 @@
 
 .default {
   background-color: #4d4d4d;
-  width: 100vw;
-  height: 100vh;
+  width: 1920px;
+  height: 1000px;
   display: flex;
-  position: relative;
-  max-width: 1920px;
-  margin: 0 auto;
+  transform-origin: top left;
+  transform: scale(var(--scale));
 }
 
 :root {
-  --max-width: 1920px;
-  --max-height: 1000px;
-  font-size: calc(16px + (24 - 16) * (100vw - 400px) / (1920 - 400));
+  --design-width: 1920;
+  --scale: min(1, calc(100vw / var(--design-width)));
 }
 
 html, body {
   height: 100%;
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
 }
-/* center the scaled layout and prevent page scroll */
+
 body {
   display: flex;
-  align-items: flex-start; /* keep top alignment */
   justify-content: center;
-  overflow: hidden;
-  background-color: #4d4d4d; /* match container background */
+  background-color: #4d4d4d;
 }
 
 .default .GNB {
   display: flex;
-  width: 100%;
-  height: clamp(60px, 10vh, 100px);
+  width: 1920px;
+  height: 100px;
   font-family:"LINESeedSans-Heavy";
   position: relative;
   align-items: center;
@@ -72,15 +68,15 @@ body {
 
 .default .logo {
   position: relative;
-  width: clamp(60px, 5.2vw, 100px);
-  height: clamp(60px, 5.2vw, 100px);
+  width: 100px;
+  height: 100px;
   background-color: #009DFF;
 }
 
 .default .navigation {
   position: relative;
-  width: calc(100% - clamp(60px, 5.2vw, 100px));
-  height: clamp(60px, 10vh, 100px);
+  width: 1820px;
+  height: 100px;
   background-color: #000000;
 }
 
