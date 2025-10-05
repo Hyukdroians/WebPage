@@ -32,15 +32,13 @@
 
 .default {
   background-color: #4d4d4d;
-  width: 1920px;
+  width: 100%;
   height: 1000px;
   display: flex;
-  transform-origin: top left;
-  transform: scale(var(--layout-scale));
 }
 
 :root {
-  --design-width: 1920px;
+  --design-width: 100%;
   --design-height: 1000px;
   --layout-scale: clamp(0.5, calc(100vw / var(--design-width)), 1);
 }
@@ -60,8 +58,9 @@ body {
 
 .default .GNB {
   display: flex;
-  width: 1920px;
-  height: 100px;
+  width: 100%;
+  max-width: 1920px;
+  height: 80px;
   font-family:"LINESeedSans-Heavy";
   position: relative;
   align-items: center;
@@ -70,15 +69,15 @@ body {
 
 .default .logo {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background-color: #009DFF;
 }
 
 .default .navigation {
   position: relative;
-  width: 1820px;
-  height: 100px;
+  width: 100%;
+  height: 80px;
   background-color: #000000;
 }
 
@@ -105,7 +104,7 @@ body {
   font-family: "LINESeedSans-Heavy";
   font-weight: 400;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 20px;
   line-height: normal;
 }
 
@@ -136,9 +135,9 @@ body {
   font-family: "LINESeedSans-Heavy", Helvetica;
   font-weight: 400;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 20px;
   letter-spacing: 0;
-  line-height: 26px;
+  line-height: 20px;
 }
 
 .default .frame .div:hover,
@@ -156,14 +155,15 @@ body {
 }
 
 .default .share-this {
-  position: absolute;
-  top: 27px;
-  left: 1575px; /* moved slightly to the right */
-  width: 248px;
-  height: 48px;
+  position: relative;   /* absolute 제거 */
+  left: auto;
+  top: auto;
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: auto;
+  margin-right: 20px;   /* 여백은 선택 */
 }
-
 .default .text-wrapper-2 {
   display: flex;
   align-items: center;
@@ -173,9 +173,9 @@ body {
   font-family: "LINESeedSans-Heavy", Helvetica;
   font-weight: 400;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 20px;
   text-align: right;
-  letter-spacing: 0.24px;
+  letter-spacing: 0.20px;
   line-height: normal;
 }
 
