@@ -1,31 +1,31 @@
 @font-face {
   font-family: LINESeedSans-Thin;
   src:
-    url(/new/files/fonts/line-kr/LINESeedKR-Th.woff2) format("woff2");
+    url(/files/fonts/line-kr/LINESeedKR-Th.woff2) format("woff2");
   font-style: normal;
 }
 @font-face {
   font-family: LINESeedSans-Regular;
   src:
-    url(/new/files/fonts/line-kr/LINESeedKR-Rg.woff2) format("woff2");
+    url(/files/fonts/line-kr/LINESeedKR-Rg.woff2) format("woff2");
   font-style: normal;
 }
 @font-face {
   font-family: LINESeedSans-Bold;
   src:
-    url(/new/files/fonts/line-kr/LINESeedKR-Bd.woff2) format("woff2");
+    url(/files/fonts/line-kr/LINESeedKR-Bd.woff2) format("woff2");
   font-style: normal;
 }
 @font-face {
   font-family: LINESeedSans-Heavy;
   src:
-    url(/new/files/fonts/line-en/LINESeedSans_W_He.woff2) format("woff2");
+    url(/files/fonts/line-en/LINESeedSans_W_He.woff2) format("woff2");
   font-style: normal;
 }
 @font-face {
   font-family: LINESeedSans-ExtraBold;
   src:
-    url(/new/files/fonts/line-en/LINESeedSans_W_XBd.woff2) format("woff2");
+    url(/files/fonts/line-en/LINESeedSans_W_XBd.woff2) format("woff2");
   font-style: normal;
 }
 
@@ -158,7 +158,7 @@ body {
 .default .share-this {
   position: absolute;
   top: 27px;
-  left: 1660px; /* moved slightly to the right */
+  left: 1575px; /* moved slightly to the right */
   width: 248px;
   height: 48px;
   display: flex;
