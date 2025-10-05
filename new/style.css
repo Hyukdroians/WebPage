@@ -32,22 +32,24 @@
 
 .default {
   background-color: #4d4d4d;
-  width: 1920px;
-  height: 1000px;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  transform-origin: top left;
-  transform: scale(var(--layout-scale));
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 :root {
-  --design-width: 1920px;
-  --design-height: 1000px;
-  --layout-scale: clamp(0.5, calc(100vw / var(--design-width)), 1);
+  --max-width: 1920px;
+  --max-height: 1000px;
+  font-size: calc(16px + (24 - 16) * (100vw - 400px) / (1920 - 400));
 }
 
 html, body {
   height: 100%;
   margin: 0;
+  overflow-x: hidden;
 }
 /* center the scaled layout and prevent page scroll */
 body {
@@ -60,8 +62,8 @@ body {
 
 .default .GNB {
   display: flex;
-  width: 1920px;
-  height: 100px;
+  width: 100%;
+  height: clamp(60px, 10vh, 100px);
   font-family:"LINESeedSans-Heavy";
   position: relative;
   align-items: center;
@@ -70,15 +72,15 @@ body {
 
 .default .logo {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: clamp(60px, 5.2vw, 100px);
+  height: clamp(60px, 5.2vw, 100px);
   background-color: #009DFF;
 }
 
 .default .navigation {
   position: relative;
-  width: 1820px;
-  height: 100px;
+  width: calc(100% - clamp(60px, 5.2vw, 100px));
+  height: clamp(60px, 10vh, 100px);
   background-color: #000000;
 }
 
