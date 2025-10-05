@@ -121,10 +121,10 @@ body {
 /* Add a bullet before each nav item and change to dashes on hover */
 .default .frame .div::before {
   content: "•";
-  display: block; /* put bullet on its own line */
-  margin: 0 0 6px 0; /* space below bullet */
+  display: inline-block;
+  margin-right: 8px;
   transition: all 0.12s ease;
-  white-space: nowrap; /* prevent wrapping when content changes */
+  white-space: nowrap;
   overflow: hidden;
 }
 /* When hovering the container, replace bullet with dashes */
