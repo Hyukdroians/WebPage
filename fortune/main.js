@@ -42,7 +42,7 @@ function setRandomBgColor() {
 
 // 날짜 표시
 function setDate() {
-  dateElem.innerText = `${year}${month}${date}`;
+  dateElem.innerText = `${year}년 ${month}월 ${date}일`;
 }
 
 // 랜덤 초성 표시
