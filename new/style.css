@@ -107,18 +107,17 @@ body {
   line-height: normal;
 }
 
-/* Add a bullet before each nav item and change to dashes on hover */
+
 .default .frame .div::before {
   content: "•";
-  display: block; /* put bullet on its own line */
-  margin: 0 0 6px 0; /* space below bullet */
+  display: block; 
+  margin: 0 0 5px 0; 
   transition: all 0.12s ease;
-  white-space: nowrap; /* prevent wrapping when content changes */
+  white-space: nowrap; 
   overflow: hidden;
 }
-/* When hovering the container, replace bullet with dashes */
-.default .frame .div-wrapper:hover .div::before,
-.default .frame .screensaver:hover .div::before{
+
+.default .frame .div-wrapper:hover .div::before{
   content: "---------------";
   letter-spacing: -3px;
 }
@@ -142,43 +141,4 @@ body {
 .default .frame .div:hover,
 .default .frame .div:focus {
   color: #00bfff; 
-}
-
-.default .screensaver {
-  position: relative;
-  width: 177px;
-  height: 74px;
-  margin-top: -12.97px;
-  margin-bottom: -12.97px;
-  margin-right: -36.34px;
-}
-
-.default .share-this {
-  position: relative;   /* absolute 제거 */
-  left: auto;
-  top: auto;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: auto;
-  margin-right: 20px;   /* 여백은 선택 */
-}
-.default .text-wrapper-2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  width: 247.6px;
-  font-family: "LINESeedSans-Heavy", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 20px;
-  text-align: right;
-  letter-spacing: 0.20px;
-  line-height: normal;
-}
-
-.default .text-wrapper-2:hover {
-  text-decoration: underline;
-  cursor: pointer;
 }
