@@ -32,11 +32,12 @@
 
 .default {
   background-color: #4d4d4d;
-  width: 1920px;
-  height: 1000px;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1920px;
+  max-height: 1000px;
   display: flex;
-  transform-origin: top left;
-  transform: scale(var(--scale));
+  margin: 0 auto;
 }
 
 :root {
@@ -58,8 +59,11 @@ body {
 
 .default .GNB {
   display: flex;
-  width: 1920px;
-  height: 100px;
+  width: 100vw;
+  max-width: 1920px;
+  height: 10vh;
+  min-height: 60px;
+  max-height: 100px;
   font-family:"LINESeedSans-Heavy";
   position: relative;
   align-items: center;
@@ -68,15 +72,18 @@ body {
 
 .default .logo {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 5vw;
+  min-width: 60px;
+  max-width: 100px;
+  height: 100%;
   background-color: #009DFF;
 }
 
 .default .navigation {
   position: relative;
-  width: 1820px;
-  height: 100px;
+  width: calc(100vw - 5vw);
+  max-width: 1820px;
+  height: 100%;
   background-color: #000000;
 }
 
