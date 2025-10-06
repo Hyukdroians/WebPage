@@ -6,13 +6,13 @@ const indicatorsContainer = document.getElementById('indicators');
 const contentArea = document.getElementById('content-area');
 
 const contents = [
-  {title:'프로젝트 1', desc:'첫 번째 프로젝트 내용.', link:'#'},
-  {title:'프로젝트 2', desc:'두 번째 프로젝트 내용.', link:'#'},
-  {title:'프로젝트 3', desc:'세 번째 프로젝트 내용.', link:'#'},
-  {title:'프로젝트 4', desc:'네 번째 프로젝트 내용.', link:'#'}
+  {title:'Project Page', desc:'오른쪽으로 카드를 넘겨 내용을 확인하세요', link:'#'},
+  {title:'LINE UX Writing', desc:'라인이 네이버에서 운영하는 서비스였다면?', link:'naverline.html'},
+  {title:'준비중', desc:'', link:'#'},
+  {title:'준비중', desc:'', link:'#'}
 ];
 
-let index = 2; // 중앙 카드 시작
+let index = 0; // 중앙 카드 시작
 
 function updateCarousel() {
   const carouselWidth = carousel.offsetWidth;
