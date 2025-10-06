@@ -1,0 +1,168 @@
+/* 기본 화면 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "LINESeedSans-Regular", Helvetica, sans-serif;
+  background-color: #4d4d4d;
+}
+
+/* carousel wrapper */
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  position: relative;
+  min-height: calc(100vh - 60px); /* nav 높이 제외 */
+}
+
+/* carousel container */
+.carousel-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1500px;
+  overflow: visible;
+}
+
+/* carousel */
+.carousel {
+  position: relative;
+  width: 800px;
+  height: 450px;
+}
+
+/* 카드 */
+.card {
+  position: absolute;
+  width: 533px;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  transition: transform 0.5s cubic-bezier(0.23,1,0.32,1), z-index 0.5s, opacity 0.5s;
+  cursor: grab;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card.center {
+  transform: translateX(120px) translateZ(80px) rotateY(0deg) scale(1.05);
+  z-index: 10;
+}
+
+.card.left {
+  transform: translateX(0px) translateZ(-50px) rotateY(20deg) scale(0.9);
+  z-index: 5;
+}
+
+.card.hidden-right {
+  transform: translateX(240px) translateZ(-100px) rotateY(-20deg) scale(0.85);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 오른쪽 내용 영역 */
+.content-area {
+  width: 400px;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "LINESeedSans-Regular", Helvetica, sans-serif;
+  transition: all 0.5s ease;
+}
+
+.content-area.fade-out {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.content-area.fade-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.content-area h2 {
+  margin: 0 0 10px 0;
+  font-size: 28px;
+  line-height: 1.2;
+  font-family: "LINESeedSans-Bold", Helvetica, sans-serif;
+}
+
+.content-area p {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.content-area a {
+  text-decoration: none;
+  background: #00bfff;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  width: fit-content;
+  font-family: "LINESeedSans-Bold", Helvetica, sans-serif;
+}
+
+/* 버튼 */
+.buttons button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: #00bfff;
+  color: #000;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.buttons button:hover {
+  background: #009DFF;
+}
+
+#prev { left: -60px; }
+#next { right: -60px; }
+
+/* 인디케이터 */
+.indicators {
+  position: absolute;
+  bottom: -65px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.indicator.active {
+  background: #00bfff;
+}
+
+.indicator:hover {
+  transform: scale(1.2);
+}

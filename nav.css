@@ -36,11 +36,12 @@ a { text-decoration: none;}
 
 
 .default {
-  background-color: #4d4d4d;
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;  /* 내부 컨텐츠 가로 중앙 */
+  background-color: #4d4d4d;
 }
 
 :root {
@@ -52,15 +53,17 @@ a { text-decoration: none;}
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
 }
 
 body {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  overflow: hidden;
+  flex-direction: column; /* nav + main 컨텐츠 수직 배치 */
+  align-items: center;    /* 전체 화면 가로 중앙 정렬 */
+  justify-content: flex-start; /* nav 위쪽, 나머지 중앙 배치 가능 */
   background-color: #4d4d4d;
 }
+
 
 .default .GNB {
   display: flex;

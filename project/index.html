@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>kenchoi.xyz</title>
   <link rel="stylesheet" href="/nav.css" />
+  <link rel="stylesheet" href="styles.css" /> <!-- 캐러셀 CSS 추가 -->
 
   <link rel="icon" type="image/png" href="/files/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/files/favicon/favicon.svg" />
@@ -13,7 +14,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/files/favicon/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="kenchoi.xyz" />
   <link rel="manifest" href="/files/favicon/site.webmanifest" />
-
 
   <meta property="og:title" content="kenchoi.xyz" />
   <meta property="og:description" content="포트폴리오" />
@@ -32,12 +32,12 @@
   <div class="default">
     <div class="GNB">
       <a href="https://kenchoi.xyz">
-      <img class="logo" src="/files/kenchoixyzlogo.svg" alt="Kenchoi.xyz" />
-      </a> 
+        <img class="logo" src="/files/kenchoixyzlogo.svg" alt="Kenchoi.xyz" />
+      </a>
       <div class="navigation">
         <div class="frame">
           <div class="div-wrapper">
-              <a class="div" href="/project">Project</a>
+            <a class="div" href="/project">Project</a>
           </div>
           <div class="div-wrapper">
             <a class="div" href="/fortune">Fortune</a>
@@ -53,10 +53,31 @@
     </div>
     <script src="/nav.js"></script>
 
-  
-  
- 
+       <div class="carousel-wrapper">
+      <div class="carousel-container">
+        <div class="carousel" id="carousel">
+          <div class="card"><img src="images/project1.jpg"></div>
+          <div class="card"><img src="images/project2.jpg"></div>
+          <div class="card"><img src="images/project3.jpg"></div>
+          <div class="card"><img src="images/project4.jpg"></div>
+        </div>
 
+        <div class="content-area" id="content-area">
+          <h2></h2>
+          <p></p>
+          <a href="#"></a>
+        </div>
+
+        <div class="buttons">
+          <button id="prev">&#10094;</button>
+          <button id="next">&#10095;</button>
+        </div>
+
+        <div class="indicators" id="indicators"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
