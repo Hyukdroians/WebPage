@@ -148,3 +148,12 @@ body {
 .default .frame .div:focus {
   color: #00bfff; 
 }
+
+.default .frame .div.active::before {
+  content: "---------------";
+  letter-spacing: -3px;
+}
+
+.default .frame .div.active {
+  color: #00bfff; /* 활성 메뉴 색상 */
+}
