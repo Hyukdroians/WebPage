@@ -7,7 +7,7 @@ const contentArea = document.getElementById('content-area');
 
 const contents = [
   {title:'Project Page', desc:'오른쪽으로 카드를 넘겨 내용을 확인하세요', link:'#'},
-  {title:'LINE UX Writing', desc:'라인이 네이버에서 운영하는 서비스였다면?', link:'naverline.html'},
+  {title:'LINE UX Writing', desc:'라인이 네이버에서 운영하는 서비스였다면?', link:'naverline/index.html'},
   {title:'준비중', desc:'', link:'#'},
   {title:'준비중', desc:'', link:'#'}
 ];
