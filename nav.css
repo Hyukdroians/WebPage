@@ -147,3 +147,10 @@ body {
 .default .frame .div.active {
   color: #00bfff; /* 활성 메뉴 색상 */
 }
+
+
+@media (max-width: 545px) {
+  .default .div-wrapper{
+    width: 100px
+  }
+}
