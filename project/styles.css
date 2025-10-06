@@ -13,7 +13,6 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   position: relative;
   min-height: calc(100vh - 60px); /* nav 높이 제외 */
 }
@@ -145,7 +144,7 @@ html, body {
 /* 인디케이터 */
 .indicators {
   position: absolute;
-  bottom: -65px;
+  bottom: 5px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -153,8 +152,8 @@ html, body {
 }
 
 .indicator {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #ccc;
   cursor: pointer;
@@ -162,7 +161,7 @@ html, body {
 }
 
 .indicator.active {
-  background: #00bfff;
+  background: #009DFF;
 }
 
 .indicator:hover {
