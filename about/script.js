@@ -70,6 +70,7 @@ function animateTitle() {
     });
 }
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const leftSection = document.getElementById('leftSection');
     const rightSection = document.getElementById('rightSection');
@@ -77,8 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(animateTitle, 1800);
     applyRandomColor(leftSection);
     applyRandomColor(rightSection);
-    
-
 document.addEventListener('keydown', function(event) {
         if (event.code === 'Space') {
             event.preventDefault();

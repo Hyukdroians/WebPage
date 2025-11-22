@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: local('Pretendard Variable'),
+       url('/woff2/PretendardVariable.woff2') format('woff2-variations');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Pretendard Variable', Arial, sans-serif;
+  background-color: #000000; 
+  color: #004cff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; 
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.content {
+  text-align: center;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.title .char {
+  display: inline-block;
+  transition: font-weight 0.6s ease-in-out;
+  font-size: 4rem;
+  letter-spacing: -0.08em;
+  margin: 0;
+}
+
+.clr-picker {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}

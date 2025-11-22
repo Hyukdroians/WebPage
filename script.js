@@ -31,20 +31,23 @@ function applyRandomColor(element) {
     let tempColor = "rgb(" + rgbVals[0] + ", " + rgbVals[1] + ", " + rgbVals[2] + ")";
     element.style.backgroundColor = tempColor;
     
+    // 텍스트 색상을 배경에 맞게 조정
+    const textColor = getContrastColor(rgbVals);
     const content = element.querySelector('.content');
-    content.style.color = getContrastColor(rgbVals);
+    content.style.color = textColor;
     
+    // 메뉴 아이템의 테두리 색상도 조정
     const menuItems = element.querySelectorAll('.menu-item');
     menuItems.forEach(item => {
-        item.style.color = getContrastColor(rgbVals);
-        item.style.borderColor = getContrastColor(rgbVals);
+        item.style.color = textColor;
+        item.style.borderColor = textColor;
     });
 }
 
 function createVariableWeightTitle() {
     const titleElement = document.getElementById('titleText');
     const text = titleElement.textContent;
-    const weights = [450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450];
+    const weights = [450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450]; // 10개 글자에 대한 weight
     
     titleElement.innerHTML = '';
     
@@ -62,7 +65,7 @@ function animateTitle() {
     
     letters.forEach((letter, index) => {
         setTimeout(() => {
-            letter.style.fontWeight = "920";
+            letter.style.fontWeight = "920"; // 최대 굵기로 변경
             setTimeout(() => {
                 letter.style.fontWeight = "100";
             }, 1000);
@@ -70,16 +73,23 @@ function animateTitle() {
     });
 }
 
+// 페이지 로드 시 초기 설정
 document.addEventListener('DOMContentLoaded', function() {
     const leftSection = document.getElementById('leftSection');
     const rightSection = document.getElementById('rightSection');
+    
+    // Variable 폰트 Weight 적용
     createVariableWeightTitle();
-    setInterval(animateTitle, 1800);
+    
+    // 타이틀 애니메이션 시작
+    setInterval(animateTitle, 1800); // 2초마다 애니메이션 실행
+    
+    // 초기 색상 설정
     applyRandomColor(leftSection);
     applyRandomColor(rightSection);
     
-
-document.addEventListener('keydown', function(event) {
+    // 키보드 이벤트 (스페이스바로 색상 랜덤 변경)
+    document.addEventListener('keydown', function(event) {
         if (event.code === 'Space') {
             event.preventDefault();
             applyRandomColor(leftSection);

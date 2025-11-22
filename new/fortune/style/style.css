@@ -1,8 +1,26 @@
+@font-face {
+  font-family: LINESeedSans-Regular;
+  src:
+    url(/files/fonts/line-kr/LINESeedKR-Rg.woff2) format("woff2");
+  font-style: normal;
+}
+@font-face {
+  font-family: LINESeedSans-Bold;
+  src:
+    url(/files/fonts/line-kr/LINESeedKR-Bd.woff2) format("woff2");
+  font-style: normal;
+}
+@font-face {
+  font-family: LINESeedSans-Heavy;
+  src:
+    url(/files/fonts/line-en/LINESeedSans_W_He.woff2) format("woff2");
+  font-style: normal;
+}
 
 body {
   width: 100%;
   height: 100%;
-  font-family: "Pretendard", sans-serif;
+  font-family: "LINESeedSans-Regular";
   overflow-x: hidden;
   overflow-y: hidden;
   letter-spacing: -0.05em;
@@ -39,11 +57,13 @@ main {
   opacity: 0;
 }
 .content .title {
+  font-family: "LINESeedSans-Heavy";
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 125%;
 }
 .content .fortune {
+  font-family: "LINESeedSans-Bold";
   max-width: 550px;
   font-size: 2rem;
   line-height: 2.6rem;
