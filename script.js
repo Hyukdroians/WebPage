@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
     createVariableWeightTitle();
     
     // 타이틀 애니메이션 시작
-    setInterval(animateTitle, 1800); // 2초마다 애니메이션 실행
+    setInterval(animateTitle, 1700); // 2초마다 애니메이션 실행
     
     // 초기 색상 설정
     applyRandomColor(leftSection);

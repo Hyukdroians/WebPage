@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const leftSection = document.getElementById('leftSection');
     const rightSection = document.getElementById('rightSection');
     createVariableWeightTitle();
-    setInterval(animateTitle, 1800);
+    setInterval(animateTitle, 1700);
 });
 
 / Coloris 위젯 관련 코드 /
