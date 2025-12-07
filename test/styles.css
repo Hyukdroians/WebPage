@@ -1,0 +1,330 @@
+@font-face {
+    font-family: 'LINESeedSansXBd';
+    src: url('/files/fonts/line-en/LINESeedSans_W_XBd.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LINESeedKR';
+    src: url('/files/fonts/line-kr/LINESeedKR-Th.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* LINE Seed KR Regular */
+@font-face {
+    font-family: 'LINESeedKR';
+    src: url('/files/fonts/line-kr/LINESeedKR-Rg.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+/* LINE Seed KR Bold */
+@font-face {
+    font-family: 'LINESeedKR';
+    src: url('/files/fonts/line-kr/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    
+}
+
+:root {
+    --font-main: 'LINESeedKR', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+
+    /* Theme Variables (Default Dark) */
+    --bg-color: #050505;
+    --text-white: #ffffff;
+    --text-gray: #888888;
+    --text-dark: #333333;
+    --point-red: #009dff;
+    --border-color: rgba(255, 255, 255, 0.2);
+
+    /* Spacing */
+    --spacing-section: 180px;
+    --spacing-item: 10px;
+}
+
+/* Light Theme Override */
+body.light-theme {
+    --bg-color: #ffffff;
+    --text-white: #111111;
+    /* Inverted */
+    --text-gray: #666666;
+    --text-dark: #eeeeee;
+    --border-color: rgba(0, 0, 0, 0.1);
+    mix-blend-mode: normal;
+}
+
+/* 텍스트 선택 색상 (파란색 #009DFF 적용) */
+::selection {
+    background: #009DFF;
+    color: #ffffff;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    transition: background-color 0.5s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--text-white);
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 1000;
+    background: none;
+    border: 1px solid var(--text-gray);
+    color: var(--text-gray);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: 14px;
+    transition: border-color 0.5s ease, color 0.5s ease, opacity 0.3s ease;
+}
+
+.theme-toggle:hover {
+    opacity: 0.8;
+}
+
+/* 0. Ambient Light Background (Canvas) */
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* 2. Social Links */
+.social-links {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    mix-blend-mode: difference;
+    transition: opacity 1s ease;
+}
+
+.social-logo-icon {
+    height: 24px;
+    width: auto;
+    max-width: 100%;
+    filter: invert(1);
+    /* Dark Theme에서 보이도록 흰색으로 인버트 */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: block;
+}
+
+body.light-theme .social-logo-icon {
+    filter: invert(0);
+    /* Light Theme에서는 검은색으로 유지 */
+}
+
+.social-links a:hover .social-logo-icon {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+/* Container - Shared Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Red Rounded Badge */
+.red-badge {
+    display: inline-block;
+    background-color: #009DFF;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 10px;
+}
+
+/* 3. Header */
+header {
+    padding: 180px 0 var(--spacing-section) 0;
+}
+
+h1.main-title {
+    font-family: 'LINESeedSansXBd', var(--font-main);
+    font-size: 10vw;
+    line-height: 0.9;
+    font-weight: 900;
+    margin: 0;
+    white-space: normal;
+    color: var(--text-white);
+    transform-origin: top left;
+    letter-spacing: -0.09em;
+}
+
+.role-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 50px;
+    width: 100%;
+
+}
+
+.role {
+    font-size: 2.5vw;
+    line-height: 1.2;
+    font-weight: 800;
+    color: var(--text-white);
+    white-space: pre-line;
+    margin-bottom: 20px;
+    min-height: 3vw;
+}
+
+.exp-years {
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px 30px;
+}
+
+.contact-label {
+    font-size: 12px;
+    color: var(--text-gray);
+    display: block;
+    margin-bottom: 2px;
+}
+
+.contact-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-white);
+    text-decoration: none;
+}
+
+.contact-value:hover {
+    color: #009DFF;
+}
+
+/* 4. Changing Skill Section 삭제됨 */
+/* 5. Section Layout 삭제됨 */
+
+/* 6. Scramble & Reveal Animations */
+.scramble-scroll {
+    opacity: 0;
+    transition: opacity 0s;
+}
+
+.reveal {
+    opacity: 0;
+    filter: blur(5px);
+    transition: opacity 1s ease, filter 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    filter: blur(0);
+}
+
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.delay-3 {
+    transition-delay: 0.3s;
+}
+
+
+/* Add transitions to elements that change color */
+h1,
+h2,
+h3,
+.role,
+.contact-value {
+    transition: color 0.5s ease, border-color 0.5s ease;
+}
+
+/* Footer 삭제됨 */
+
+/* Scramble Helper Class */
+.dud {
+    color: #444;
+    opacity: 0.7;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    header {
+        padding: 100px 0 180px 0;
+    }
+
+    h1.main-title {
+        font-size: 11vw;
+    }
+
+    .role-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .role {
+        font-size: 6vw;
+        min-height: 8vw;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .social-links {
+        top: 20px;
+        right: 20px;
+    }
+
+    .theme-toggle {
+        bottom: 20px;
+        right: 20px;
+    }
+}
