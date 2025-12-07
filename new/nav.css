@@ -6,31 +6,31 @@ a { text-decoration: none;}
 @font-face {
   font-family: LINESeedSans-Thin;
   src:
-    url(files/fonts/line-kr/LINESeedKR-Th.woff2) format("woff2");
+    url(/files/fonts/line-kr/LINESeedKR-Th.woff2) format("woff2");
   font-style: normal;
 }
 @font-face {
   font-family: LINESeedSans-Regular;
   src:
-    url(files/fonts/line-kr/LINESeedKR-Rg.woff2) format("woff2");
+    url(/files/fonts/line-kr/LINESeedKR-Rg.woff2) format("woff2");
   font-style: normal;
 }
 @font-face {
   font-family: LINESeedSans-Bold;
   src:
-    url(files/fonts/line-kr/LINESeedKR-Bd.woff2) format("woff2");
+    url(/files/fonts/line-kr/LINESeedKR-Bd.woff2) format("woff2");
   font-style: normal;
 }
 @font-face {
   font-family: LINESeedSans-Heavy;
   src:
-    url(files/fonts/line-en/LINESeedSans_W_He.woff2) format("woff2");
+    url(/files/fonts/line-en/LINESeedSans_W_He.woff2) format("woff2");
   font-style: normal;
 }
 @font-face {
   font-family: LINESeedSans-ExtraBold;
   src:
-    url(files/fonts/line-en/LINESeedSans_W_XBd.woff2) format("woff2");
+    url(/files/fonts/line-en/LINESeedSans_W_XBd.woff2) format("woff2");
   font-style: normal;
 }
 
