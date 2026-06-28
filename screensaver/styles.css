@@ -7,6 +7,15 @@
        url('/woff2/PretendardVariable.woff2') format('woff2-variations');
 }
 
+/* ===== Fonts ===== */
+@font-face {font-family:'LINESeedSansXBd';src:url('files/fonts/line-en/LINESeedSans_W_XBd.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap;}
+@font-face {font-family:'LINESeedSans';src:url('files/fonts/line-en/LINESeedSans_W_Rg.woff2') format('woff2');font-weight:400;font-display:swap;}
+@font-face {font-family:'LINESeedSans';src:url('files/fonts/line-en/LINESeedSans_W_Bd.woff2') format('woff2');font-weight:700;font-display:swap;}
+@font-face {font-family:'LINESeedKR';src:url('files/fonts/line-kr/LINESeedKR-Th.woff2') format('woff2');font-weight:100;font-display:swap;}
+@font-face {font-family:'LINESeedKR';src:url('files/fonts/line-kr/LINESeedKR-Rg.woff2') format('woff2');font-weight:400;font-display:swap;}
+@font-face {font-family:'LINESeedKR';src:url('files/fonts/line-kr/LINESeedKR-Bd.woff2') format('woff2');font-weight:700;font-display:swap;}
+
+
 * {
   margin: 0;
   padding: 0;
