@@ -1,99 +1,227 @@
-function randomNum() {
-    return Math.floor(Math.random() * 256);
-}
+(function () {
+  'use strict';
 
-function randomRGB() {
-    let red = randomNum();
-    let green = randomNum();
-    let blue = randomNum();
-    let rgb;
-    let luma = 0.2126 * red + 0.7152 * green + 0.0722 * blue; // per ITU-R BT.709
-    
-    while (luma < 70 || luma > 230) {
-        red = randomNum();
-        green = randomNum();
-        blue = randomNum();
-        luma = 0.2126 * red + 0.7152 * green + 0.0722 * blue; // per ITU-R BT.709
-    }
-    
-    rgb = [red, green, blue];
-    return rgb;
-}
-
-function getContrastColor(rgb) {
-    const [r, g, b] = rgb;
-    const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-    return luma > 128 ? '#000000' : '#ffffff';
-}
-
-function applyRandomColor(element) {
-    let rgbVals = randomRGB();
-    let tempColor = "rgb(" + rgbVals[0] + ", " + rgbVals[1] + ", " + rgbVals[2] + ")";
-    element.style.backgroundColor = tempColor;
-    
-    // 텍스트 색상을 배경에 맞게 조정
-    const textColor = getContrastColor(rgbVals);
-    const content = element.querySelector('.content');
-    content.style.color = textColor;
-    
-    // 메뉴 아이템의 테두리 색상도 조정
-    const menuItems = element.querySelectorAll('.menu-item');
-    menuItems.forEach(item => {
-        item.style.color = textColor;
-        item.style.borderColor = textColor;
+  /* ---- Share button ---- */
+  var shareBtn = document.getElementById('shareBtn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', function () {
+      var url = 'https://kenchoi.xyz';
+      if (navigator.share) {
+        navigator.share({ title: 'kenchoi.xyz', url: url }).catch(function () {});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function () {
+          alert('링크가 복사되었습니다 — ' + url);
+        }).catch(function () { alert(url); });
+      } else {
+        alert(url);
+      }
     });
-}
+  }
 
-function createVariableWeightTitle() {
-    const titleElement = document.getElementById('titleText');
-    const text = titleElement.textContent;
-    const weights = [450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450]; // 10개 글자에 대한 weight
-    
-    titleElement.innerHTML = '';
-    
-    for (let i = 0; i < text.length; i++) {
-        const span = document.createElement('span');
-        span.textContent = text[i];
-        span.className = 'char';
-        span.style.fontWeight = weights[i] || 400;
-        titleElement.appendChild(span);
+  /* ---- Text scramble effect ---- */
+  function TextScramble(el) {
+    this.el = el;
+    this.chars = '!<>-_\\/[]{}—=+*^?#________';
+    this.update = this.update.bind(this);
+  }
+  TextScramble.prototype.setText = function (newText) {
+    var self = this;
+    var oldText = this.el.innerText;
+    var length = Math.max(oldText.length, newText.length);
+    var promise = new Promise(function (resolve) { self.resolve = resolve; });
+    this.queue = [];
+    for (var i = 0; i < length; i++) {
+      var from = oldText[i] || '';
+      var to = newText[i] || '';
+      var start = Math.floor(Math.random() * 40);
+      var end = start + Math.floor(Math.random() * 40);
+      this.queue.push({ from: from, to: to, start: start, end: end });
     }
-}
+    cancelAnimationFrame(this.frameRequest);
+    this.frame = 0;
+    this.update();
+    return promise;
+  };
+  TextScramble.prototype.update = function () {
+    var output = '';
+    var complete = 0;
+    for (var i = 0, n = this.queue.length; i < n; i++) {
+      var q = this.queue[i];
+      if (this.frame >= q.end) { complete++; output += q.to; }
+      else if (this.frame >= q.start) {
+        if (!q.char || Math.random() < 0.28) { q.char = this.randomChar(); }
+        output += '<span style="opacity:0.5;color:#009DFF;">' + q.char + '</span>';
+      } else { output += q.from; }
+    }
+    this.el.innerHTML = output;
+    if (complete === this.queue.length) { this.resolve(); }
+    else { this.frameRequest = requestAnimationFrame(this.update); this.frame++; }
+  };
+  TextScramble.prototype.randomChar = function () {
+    return this.chars[Math.floor(Math.random() * this.chars.length)];
+  };
 
-function animateTitle() {
-    const letters = document.querySelectorAll("#titleText .char");
-    
-    letters.forEach((letter, index) => {
-        setTimeout(() => {
-            letter.style.fontWeight = "920"; // 최대 굵기로 변경
-            setTimeout(() => {
-                letter.style.fontWeight = "100";
-            }, 1000);
-        }, index * 100);
+  /* ---- Organic 3D network background ---- */
+  function NetworkBG(container) {
+    this.container = container;
+    this.container.innerHTML = '';
+    this.canvas = document.createElement('canvas');
+    this.ctx = this.canvas.getContext('2d');
+    this.container.appendChild(this.canvas);
+    this.mouse = { x: 0, y: 0 };
+    this.rotation = { x: 0, y: 0 };
+    this.target = { x: 0, y: 0 };
+    var self = this;
+    window.addEventListener('resize', function () { self.resize(); });
+    window.addEventListener('mousemove', function (e) {
+      self.mouse.x = (e.clientX / self.width) * 2 - 1;
+      self.mouse.y = (e.clientY / self.height) * 2 - 1;
     });
-}
-
-// 페이지 로드 시 초기 설정
-document.addEventListener('DOMContentLoaded', function() {
-    const leftSection = document.getElementById('leftSection');
-    const rightSection = document.getElementById('rightSection');
-    
-    // Variable 폰트 Weight 적용
-    createVariableWeightTitle();
-    
-    // 타이틀 애니메이션 시작
-    setInterval(animateTitle, 1700); // 2초마다 애니메이션 실행
-    
-    // 초기 색상 설정
-    applyRandomColor(leftSection);
-    applyRandomColor(rightSection);
-    
-    // 키보드 이벤트 (스페이스바로 색상 랜덤 변경)
-    document.addEventListener('keydown', function(event) {
-        if (event.code === 'Space') {
-            event.preventDefault();
-            applyRandomColor(leftSection);
-            applyRandomColor(rightSection);
+    this.resize();
+    this.animate = this.animate.bind(this);
+    this.animate();
+  }
+  NetworkBG.prototype.resize = function () {
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
+    this.canvas.width = this.width;
+    this.canvas.height = this.height;
+    this.createParticles();
+  };
+  NetworkBG.prototype.createParticles = function () {
+    this.particles = [];
+    var count = Math.min(220, Math.floor((this.width * this.height) / 18000));
+    for (var i = 0; i < count; i++) {
+      this.particles.push({
+        x: (Math.random() - 0.5) * 2000,
+        y: (Math.random() - 0.5) * 2000,
+        z: (Math.random() - 0.5) * 2000,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        vz: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 2 + 1
+      });
+    }
+  };
+  NetworkBG.prototype.project = function (p) {
+    var fov = 800;
+    var scale = fov / (fov + p.z);
+    return { x: p.x * scale + this.width / 2, y: p.y * scale + this.height / 2, scale: scale };
+  };
+  NetworkBG.prototype.rotate = function (p, ax, ay) {
+    var x = p.x * Math.cos(ay) - p.z * Math.sin(ay);
+    var z = p.x * Math.sin(ay) + p.z * Math.cos(ay);
+    var y2 = p.y * Math.cos(ax) - z * Math.sin(ax);
+    var z2 = p.y * Math.sin(ax) + z * Math.cos(ax);
+    return { x: x, y: y2, z: z2 };
+  };
+  NetworkBG.prototype.animate = function () {
+    this.ctx.clearRect(0, 0, this.width, this.height);
+    this.target.y = this.mouse.x * 0.5;
+    this.target.x = -this.mouse.y * 0.5;
+    this.rotation.x += (this.target.x - this.rotation.x) * 0.05;
+    this.rotation.y += (this.target.y - this.rotation.y) * 0.05;
+    var proj = [];
+    var time = Date.now() * 0.001;
+    var self = this;
+    this.particles.forEach(function (p) {
+      p.x += p.vx; p.y += p.vy; p.z += p.vz;
+      var lim = 1000;
+      if (p.x > lim) p.x = -lim; if (p.x < -lim) p.x = lim;
+      if (p.y > lim) p.y = -lim; if (p.y < -lim) p.y = lim;
+      if (p.z > lim) p.z = -lim; if (p.z < -lim) p.z = lim;
+      var r = self.rotate(p, self.rotation.x, self.rotation.y);
+      r.z += Math.sin(time * 0.5) * 100;
+      var pr = self.project(r);
+      if (r.z > -700) {
+        proj.push({ x: pr.x, y: pr.y, scale: pr.scale, z: r.z, orig: p });
+        var alpha = Math.max(0, (1 - Math.abs(r.z) / 1000) * 0.4);
+        self.ctx.beginPath();
+        self.ctx.arc(pr.x, pr.y, p.size * pr.scale, 0, Math.PI * 2);
+        self.ctx.fillStyle = 'rgba(0,0,0,' + alpha + ')';
+        self.ctx.fill();
+      }
+    });
+    for (var i = 0; i < proj.length; i++) {
+      var p1 = proj[i];
+      var c = 0;
+      for (var j = i + 1; j < proj.length; j++) {
+        var p2 = proj[j];
+        var dx = p1.x - p2.x, dy = p1.y - p2.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 150) {
+          var mx = (p1.x + p2.x) / 2 + (Math.random() - 0.5) * 20;
+          var my = (p1.y + p2.y) / 2 + (Math.random() - 0.5) * 20;
+          this.ctx.beginPath();
+          this.ctx.moveTo(p1.x, p1.y);
+          this.ctx.quadraticCurveTo(mx, my, p2.x, p2.y);
+          var a = Math.min(p1.orig.size, p2.orig.size) * 0.08 * (1 - dist / 150);
+          this.ctx.strokeStyle = 'rgba(0,0,0,' + a + ')';
+          this.ctx.lineWidth = 0.5;
+          this.ctx.stroke();
+          c++; if (c > 3) break;
         }
+      }
+    }
+    requestAnimationFrame(this.animate);
+  };
+
+  /* ---- Perspective tilt on title ---- */
+  function Tilt(el) {
+    this.el = el;
+    this.mouse = { x: 0, y: 0 };
+    var self = this;
+    document.addEventListener('mousemove', function (e) {
+      self.mouse.x = e.clientX - window.innerWidth / 2;
+      self.mouse.y = e.clientY - window.innerHeight / 2;
     });
-});
+    this.update = this.update.bind(this);
+    this.update();
+  }
+  Tilt.prototype.update = function () {
+    var ry = (this.mouse.x / (window.innerWidth / 2)) * 5;
+    var rx = -(this.mouse.y / (window.innerHeight / 2)) * 5;
+    this.el.style.transform = 'perspective(1000px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) scale3d(1.02,1.02,1.02)';
+    this.el.style.textShadow = (-ry * 1.5) + 'px ' + (rx * 1.5) + 'px 24px rgba(0,0,0,0.10)';
+    requestAnimationFrame(this.update.bind(this));
+  };
+
+  /* ---- Init ---- */
+  var bgEl = document.getElementById('bgCanvas');
+  if (bgEl) { new NetworkBG(bgEl); }
+
+  var titleEl = document.getElementById('heroTitle');
+  if (titleEl) {
+    var fx = new TextScramble(titleEl);
+    fx.setText('kenchoi.xyz');
+    new Tilt(titleEl);
+  }
+
+  var roleEl = document.getElementById('role');
+  if (roleEl) {
+    var rfx = new TextScramble(roleEl);
+    var roles = ['UI-UX Design', 'Front-end Junior', 'Video Editing', 'Graphic Design'];
+    var idx = 0;
+    var next = function () {
+      idx = (idx + 1) % roles.length;
+      rfx.setText(roles[idx]).then(function () { setTimeout(next, 3500); });
+    };
+    setTimeout(next, 2600);
+  }
+
+  /* ---- Scroll reveal ---- */
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  function reveal() {
+    var vh = window.innerHeight;
+    reveals.forEach(function (el) {
+      if (el.dataset.shown) return;
+      if (el.getBoundingClientRect().top < vh * 0.88) {
+        el.classList.add('shown');
+        el.dataset.shown = '1';
+      }
+    });
+  }
+  reveal();
+  window.addEventListener('scroll', reveal, { passive: true });
+  window.addEventListener('resize', reveal);
+})();
