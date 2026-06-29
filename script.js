@@ -1,6 +1,21 @@
 (function () {
   'use strict';
 
+  /* ---- Toast ---- */
+  var toastEl = null;
+  var toastTimer = null;
+  function showToast(msg) {
+    if (!toastEl) {
+      toastEl = document.createElement('div');
+      toastEl.className = 'toast';
+      document.body.appendChild(toastEl);
+    }
+    toastEl.textContent = msg;
+    clearTimeout(toastTimer);
+    toastEl.classList.add('show');
+    toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 2200);
+  }
+
   /* ---- Share button ---- */
   var shareBtn = document.getElementById('shareBtn');
   if (shareBtn) {
@@ -10,10 +25,10 @@
         navigator.share({ title: 'kenchoi.xyz', url: url }).catch(function () {});
       } else if (navigator.clipboard) {
         navigator.clipboard.writeText(url).then(function () {
-          alert('링크가 복사되었습니다 — ' + url);
-        }).catch(function () { alert(url); });
+          showToast('링크가 복사되었어요! — kenchoi.xyz');
+        }).catch(function () { showToast(url); });
       } else {
-        alert(url);
+        showToast(url);
       }
     });
   }
