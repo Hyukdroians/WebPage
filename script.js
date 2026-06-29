@@ -12,8 +12,12 @@
     }
     toastEl.textContent = msg;
     clearTimeout(toastTimer);
+    toastEl.style.transition = 'transform .38s cubic-bezier(.16,1,.3,1)';
     toastEl.classList.add('show');
-    toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 2200);
+    toastTimer = setTimeout(function () {
+      toastEl.style.transition = 'transform .3s cubic-bezier(.4,0,1,1)';
+      toastEl.classList.remove('show');
+    }, 2200);
   }
 
   /* ---- Share button ---- */

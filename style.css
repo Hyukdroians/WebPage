@@ -59,15 +59,16 @@ img { display:block; }
 
 /* ===== Toast ===== */
 .toast {
-  position:fixed; bottom:32px; left:50%; transform:translateX(-50%) translateY(16px);
+  position:fixed; top:84px; left:50%;
+  transform:translateX(-50%) translateY(-160%);
   background:#009DFF; color:#ffffff;
   font-family:'LINESeedSans','LINESeedKR',sans-serif; font-weight:900;
   font-size:15px; letter-spacing:0.01em; line-height:1;
   padding:14px 24px; z-index:999;
-  opacity:0; pointer-events:none;
-  transition:opacity .25s ease, transform .25s ease;
+  pointer-events:none;
+  transition:transform .38s cubic-bezier(.16,1,.3,1);
 }
-.toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+.toast.show { transform:translateX(-50%) translateY(16px); }
 
 /* ===== Layout wrap ===== */
 .wrap { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:0 40px; }
