@@ -278,6 +278,7 @@
 
         var isMobile = window.innerWidth <= 768;
         var overlay = document.createElement('div');
+        overlay.id = 'pt-src-overlay';
         Object.assign(overlay.style, {
           position: 'fixed', top: '0', left: '0', right: '0', bottom: '0',
           zIndex: '9999', backgroundColor: color, pointerEvents: 'none',
@@ -293,6 +294,12 @@
 
         setTimeout(function () { window.location.href = href; }, 650);
       });
+    });
+
+    window.addEventListener('pageshow', function () {
+      var o = document.getElementById('pt-src-overlay');
+      if (o) o.remove();
+      sessionStorage.removeItem('pt_color');
     });
   }());
 
