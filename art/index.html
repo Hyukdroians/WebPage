@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>media art — kenchoi.xyz</title>
+  <link rel="icon" href="/files/kenchoixyzlogo.svg">
+  <link rel="stylesheet" href="style.css">
+
+  <meta property="og:title" content="kenchoi.xyz" />
+  <meta property="og:description" content="포트폴리오" />
+  <meta property="og:image" content="/files/opengraph/kenchoiog.png" />
+  <meta property="og:url" content="https://kenchoi.xyz/art" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:title" content="kenchoi.xyz" />
+  <meta name="twitter:image" content="/files/opengraph/kenchoixyzogsquare.png" />
+  <meta name="twitter:description" content="포트폴리오" />
+  <meta name="twitter:url" content="https://kenchoi.xyz/art" />
+  <meta name="twitter:card" content="summary" />
+</head>
+<body>
+
+<div id="root" style="position:fixed;inset:0;width:100vw;height:100vh;background:#0a0a0a;overflow:hidden;font-family:'Pretendard Variable','Pretendard',Arial,sans-serif;cursor:pointer;user-select:none;">
+
+  <div data-stage="" style="position:absolute;left:50%;top:50%;width:2560px;height:1440px;transform-origin:center center;transform:translate(-50%,-50%);">
+
+    <!-- Scene 1a : BLUE FIELD -->
+    <div data-scene="0" style="position:absolute;inset:0;background:#009DFF;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .55s ease;">
+      <div style="position:absolute;top:80px;left:96px;font-size:30px;font-weight:700;color:rgba(255,255,255,0.85);letter-spacing:0.18em;">VARIABLE WALLPAPER</div>
+      <div style="position:absolute;bottom:80px;right:96px;font-size:30px;font-weight:700;color:rgba(255,255,255,0.85);letter-spacing:0.1em;">kenchoi.xyz</div>
+      <div data-varword="" data-delay="0" style="font-size:340px;line-height:1;color:#0a0a0a;white-space:nowrap;">kenchoi.xyz</div>
+    </div>
+
+    <!-- Scene 1b : WAVE STACK -->
+    <div data-scene="1" style="position:absolute;inset:0;background:#0a0a0a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;transition:opacity .55s ease;pointer-events:none;">
+      <div data-varword="" data-delay="0"   style="font-size:190px;line-height:0.95;color:rgba(255,255,255,0.16);white-space:nowrap;">kenchoi.xyz</div>
+      <div data-varword="" data-delay="170" style="font-size:190px;line-height:0.95;color:rgba(255,255,255,0.42);white-space:nowrap;">kenchoi.xyz</div>
+      <div data-varword="" data-delay="340" style="font-size:190px;line-height:0.95;color:#009DFF;white-space:nowrap;">kenchoi.xyz</div>
+      <div data-varword="" data-delay="510" style="font-size:190px;line-height:0.95;color:rgba(255,255,255,0.42);white-space:nowrap;">kenchoi.xyz</div>
+      <div data-varword="" data-delay="680" style="font-size:190px;line-height:0.95;color:rgba(255,255,255,0.16);white-space:nowrap;">kenchoi.xyz</div>
+    </div>
+
+    <!-- Scene 1c : STRETCH SPECIMEN -->
+    <div data-scene="2" style="position:absolute;inset:0;background:#ffffff;display:flex;flex-direction:column;justify-content:center;padding:0 130px;opacity:0;transition:opacity .55s ease;pointer-events:none;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:4px solid #0a0a0a;padding-bottom:28px;">
+        <span style="font-size:32px;font-weight:800;color:#0a0a0a;letter-spacing:0.04em;">VARIABLE TYPE SPECIMEN</span>
+        <span style="font-size:32px;font-weight:600;color:#009DFF;letter-spacing:0.04em;">№ 01</span>
+      </div>
+      <div data-varword="" data-delay="0" style="font-size:380px;line-height:1.05;color:#009DFF;white-space:nowrap;margin:40px 0;align-self:center;">kenchoi.xyz</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;border-top:4px solid #0a0a0a;padding-top:28px;">
+        <span style="font-size:30px;font-weight:600;color:#0a0a0a;letter-spacing:0.02em;">Pretendard Variable</span>
+        <span style="font-size:30px;font-weight:600;color:#52525b;letter-spacing:0.02em;">WGHT 100 – 920</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- HUD -->
+  <div data-hud="" style="position:fixed;left:50%;bottom:34px;transform:translateX(-50%);display:flex;align-items:center;gap:16px;padding:11px 20px;border-radius:40px;background:rgba(0,0,0,0.46);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;font-size:14px;font-weight:600;letter-spacing:0.01em;transition:opacity .5s ease;z-index:10;">
+    <span style="display:inline-flex;align-items:center;gap:7px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:58px;height:26px;padding:0 9px;border:1.5px solid rgba(255,255,255,0.55);border-radius:7px;font-size:12px;font-weight:700;letter-spacing:0.06em;">SPACE</span>
+      <span style="opacity:0.85;">또는 클릭으로 전환</span>
+    </span>
+    <span data-dots="" style="display:inline-flex;gap:7px;align-items:center;"></span>
+    <span data-counter="" style="opacity:0.75;font-variant-numeric:tabular-nums;">01 / 03</span>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
