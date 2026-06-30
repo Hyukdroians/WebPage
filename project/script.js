@@ -72,13 +72,12 @@ function animateTitle() {
 
 function runTransitionExit(color) {
     const isMobile = window.innerWidth <= 768;
-    const overlay = document.createElement('div');
-    Object.assign(overlay.style, {
-        position: 'fixed', top: '0', left: '0', right: '0', bottom: '0',
-        zIndex: '9999', backgroundColor: color, pointerEvents: 'none',
-        transform: 'translate(0,0)'
-    });
-    document.body.appendChild(overlay);
+    const overlay = document.getElementById('pt-overlay') || (() => {
+        const o = document.createElement('div');
+        o.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;pointer-events:none;background:' + color;
+        document.body.appendChild(o);
+        return o;
+    })();
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
             overlay.style.transition = 'transform .55s cubic-bezier(.76,0,.24,1)';

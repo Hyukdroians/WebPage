@@ -284,11 +284,14 @@
           transform: isMobile ? 'translateY(100%)' : 'translateX(100%)'
         });
         document.body.appendChild(overlay);
-        overlay.getBoundingClientRect(); // force reflow
-        overlay.style.transition = 'transform .55s cubic-bezier(.76,0,.24,1)';
-        overlay.style.transform = 'translate(0,0)';
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            overlay.style.transition = 'transform .55s cubic-bezier(.76,0,.24,1)';
+            overlay.style.transform = 'translate(0,0)';
+          });
+        });
 
-        setTimeout(function () { window.location.href = href; }, 580);
+        setTimeout(function () { window.location.href = href; }, 650);
       });
     });
   }());
