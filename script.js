@@ -205,14 +205,41 @@
     requestAnimationFrame(this.update.bind(this));
   };
 
+  /* ---- Variable font weight wave animation ---- */
+  function initVarAnim(el) {
+    var text = el.textContent || 'kenchoi.xyz';
+    el.textContent = '';
+    text.split('').forEach(function (ch) {
+      var s = document.createElement('span');
+      s.textContent = ch;
+      s.style.fontWeight = '450';
+      s.style.fontVariationSettings = "'ROND' 0";
+      el.appendChild(s);
+    });
+
+    function animateWord() {
+      var letters = el.children;
+      for (var i = 0; i < letters.length; i++) {
+        (function (letter, delay) {
+          setTimeout(function () { letter.style.fontWeight = '900'; }, delay);
+          setTimeout(function () { letter.style.fontVariationSettings = "'ROND' 75"; }, delay + 200);
+          setTimeout(function () { letter.style.fontWeight = '100'; }, delay + 1000);
+          setTimeout(function () { letter.style.fontVariationSettings = "'ROND' 0"; }, delay + 1200);
+        })(letters[i], i * 100);
+      }
+    }
+
+    animateWord();
+    setInterval(animateWord, 1700);
+  }
+
   /* ---- Init ---- */
   var bgEl = document.getElementById('bgCanvas');
   if (bgEl) { new NetworkBG(bgEl); }
 
   var titleEl = document.getElementById('heroTitle');
   if (titleEl) {
-    var fx = new TextScramble(titleEl);
-    fx.setText('kenchoi.xyz');
+    initVarAnim(titleEl);
     new Tilt(titleEl);
   }
 
