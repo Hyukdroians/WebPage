@@ -21,6 +21,8 @@
   }
 
   /* ---- Share button ---- */
+
+   
   var shareBtn = document.getElementById('shareBtn');
   if (shareBtn) {
     shareBtn.addEventListener('click', function () {
@@ -29,7 +31,7 @@
         navigator.share({ title: 'kenchoi.xyz', url: url }).catch(function () {});
       } else if (navigator.clipboard) {
         navigator.clipboard.writeText(url).then(function () {
-          showToast('링크가 복사되었어요! — kenchoi.xyz');
+          showToast('링크가 복사되었어요!');
         }).catch(function () { showToast(url); });
       } else {
         showToast(url);
