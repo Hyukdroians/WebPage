@@ -87,6 +87,7 @@ img { display:block; }
   font-family:'Google Sans Flex','LINESeedSans',sans-serif;
   font-size:clamp(40px,10vw,140px); line-height:0.9; font-weight:450; margin:0; color:#111111;
   letter-spacing:-0.07em; transform-origin:top left; will-change:transform;
+  text-shadow: 2px 4px 12px rgba(0,0,0,0.15);
 }
 .hero-title span {
   display:inline-block;
