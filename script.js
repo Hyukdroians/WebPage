@@ -252,6 +252,47 @@
     setTimeout(next, 2600);
   }
 
+  /* ---- Page transition swipe to color pages ---- */
+  (function () {
+    function rndNum() { return Math.floor(Math.random() * 256); }
+    function rndRGB() {
+      var r, g, b, luma;
+      do {
+        r = rndNum(); g = rndNum(); b = rndNum();
+        luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      } while (luma < 70 || luma > 230);
+      return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+
+    var colorTargets = ['fortune', 'project', 'about'];
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('.gnb-links .nav-link'));
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute('href') || '';
+      var isColor = colorTargets.some(function (t) { return href.indexOf('/' + t) !== -1; });
+      if (!isColor) return;
+
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var color = rndRGB();
+        sessionStorage.setItem('pt_color', color);
+
+        var isMobile = window.innerWidth <= 768;
+        var overlay = document.createElement('div');
+        Object.assign(overlay.style, {
+          position: 'fixed', top: '0', left: '0', right: '0', bottom: '0',
+          zIndex: '9999', backgroundColor: color, pointerEvents: 'none',
+          transform: isMobile ? 'translateY(100%)' : 'translateX(100%)'
+        });
+        document.body.appendChild(overlay);
+        overlay.getBoundingClientRect(); // force reflow
+        overlay.style.transition = 'transform .55s cubic-bezier(.76,0,.24,1)';
+        overlay.style.transform = 'translate(0,0)';
+
+        setTimeout(function () { window.location.href = href; }, 580);
+      });
+    });
+  }());
+
   /* ---- Scroll reveal ---- */
   var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
   function reveal() {

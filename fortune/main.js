@@ -70,18 +70,47 @@ function setOpacity() {
   wrapElem.style.opacity = 1;
 }
 
+// 페이지 전환 오버레이 exit
+function runTransitionExit(color) {
+  const isMobile = window.innerWidth <= 768;
+  const overlay = document.createElement('div');
+  Object.assign(overlay.style, {
+    position: 'fixed', top: '0', left: '0', right: '0', bottom: '0',
+    zIndex: '9999', backgroundColor: color, pointerEvents: 'none',
+    transform: 'translate(0,0)'
+  });
+  document.body.appendChild(overlay);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      overlay.style.transition = 'transform .55s cubic-bezier(.76,0,.24,1)';
+      overlay.style.transform = isMobile ? 'translateY(-100%)' : 'translateX(-100%)';
+      setTimeout(() => overlay.remove(), 600);
+    });
+  });
+}
+
 // 초기화
 window.addEventListener('DOMContentLoaded', () => {
   setDate();
   setRandomConsonants();
   load();
-  setRandomBgColor(); // 첫 진입시 배경색 랜덤 적용
+
+  const storedColor = sessionStorage.getItem('pt_color');
+  if (storedColor) {
+    sessionStorage.removeItem('pt_color');
+    contentElem.style.backgroundColor = storedColor;
+    setOpacity();
+    runTransitionExit(storedColor);
+  } else {
+    setRandomBgColor();
+  }
+
   document.addEventListener('mousedown', () => {
     setOpacity();
-    setRandomBgColor(); // 클릭시 배경색도 랜덤 변경
+    setRandomBgColor();
   }, { once: true });
   document.addEventListener('touchstart', () => {
     setOpacity();
-    setRandomBgColor(); // 터치시 배경색도 랜덤 변경
+    setRandomBgColor();
   }, { once: true });
 });

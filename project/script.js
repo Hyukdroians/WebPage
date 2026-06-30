@@ -70,16 +70,49 @@ function animateTitle() {
     });
 }
 
+function runTransitionExit(color) {
+    const isMobile = window.innerWidth <= 768;
+    const overlay = document.createElement('div');
+    Object.assign(overlay.style, {
+        position: 'fixed', top: '0', left: '0', right: '0', bottom: '0',
+        zIndex: '9999', backgroundColor: color, pointerEvents: 'none',
+        transform: 'translate(0,0)'
+    });
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            overlay.style.transition = 'transform .55s cubic-bezier(.76,0,.24,1)';
+            overlay.style.transform = isMobile ? 'translateY(-100%)' : 'translateX(-100%)';
+            setTimeout(() => overlay.remove(), 600);
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const leftSection = document.getElementById('leftSection');
     const rightSection = document.getElementById('rightSection');
     createVariableWeightTitle();
     setInterval(animateTitle, 1800);
-    applyRandomColor(leftSection);
-    applyRandomColor(rightSection);
-    
 
-document.addEventListener('keydown', function(event) {
+    const storedColor = sessionStorage.getItem('pt_color');
+    if (storedColor) {
+        sessionStorage.removeItem('pt_color');
+        let rgbVals = storedColor.replace('rgb(', '').replace(')', '').split(',').map(Number);
+        leftSection.style.backgroundColor = storedColor;
+        const content = leftSection.querySelector('.content');
+        if (content) content.style.color = getContrastColor(rgbVals);
+        const menuItems = leftSection.querySelectorAll('.menu-item');
+        menuItems.forEach(item => {
+            item.style.color = getContrastColor(rgbVals);
+            item.style.borderColor = getContrastColor(rgbVals);
+        });
+        runTransitionExit(storedColor);
+    } else {
+        applyRandomColor(leftSection);
+    }
+    applyRandomColor(rightSection);
+
+    document.addEventListener('keydown', function(event) {
         if (event.code === 'Space') {
             event.preventDefault();
             applyRandomColor(leftSection);
