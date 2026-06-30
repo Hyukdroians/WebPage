@@ -113,3 +113,10 @@ window.addEventListener('DOMContentLoaded', () => {
     setRandomBgColor();
   }, { once: true });
 });
+
+window.addEventListener('pageshow', function(e) {
+  if (e.persisted) {
+    var o = document.getElementById('pt-overlay');
+    if (o) o.remove();
+  }
+});

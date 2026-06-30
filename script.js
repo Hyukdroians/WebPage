@@ -296,9 +296,13 @@
       });
     });
 
-    window.addEventListener('pageshow', function () {
+    function cleanSrcOverlay() {
       var o = document.getElementById('pt-src-overlay');
       if (o) o.remove();
+    }
+    window.addEventListener('pagehide', cleanSrcOverlay);
+    window.addEventListener('pageshow', function () {
+      cleanSrcOverlay();
       sessionStorage.removeItem('pt_color');
     });
   }());

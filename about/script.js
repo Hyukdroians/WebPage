@@ -120,3 +120,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+window.addEventListener('pageshow', function(e) {
+    if (e.persisted) {
+        var o = document.getElementById('pt-overlay');
+        if (o) o.remove();
+    }
+});
