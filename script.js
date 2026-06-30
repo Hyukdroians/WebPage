@@ -213,7 +213,6 @@
       var s = document.createElement('span');
       s.textContent = ch;
       s.style.fontWeight = '450';
-      s.style.fontVariationSettings = "'ROND' 0";
       el.appendChild(s);
     });
 
@@ -222,9 +221,7 @@
       for (var i = 0; i < letters.length; i++) {
         (function (letter, delay) {
           setTimeout(function () { letter.style.fontWeight = '900'; }, delay);
-          setTimeout(function () { letter.style.fontVariationSettings = "'ROND' 40"; }, delay + 200);
           setTimeout(function () { letter.style.fontWeight = '100'; }, delay + 1000);
-          setTimeout(function () { letter.style.fontVariationSettings = "'ROND' 0"; }, delay + 1200);
         })(letters[i], i * 100);
       }
     }

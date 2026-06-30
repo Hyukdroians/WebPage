@@ -86,13 +86,12 @@ img { display:block; }
 .hero-title {
   font-family:'Google Sans Flex','LINESeedSans',sans-serif;
   font-size:clamp(40px,10vw,140px); line-height:0.9; font-weight:450; margin:0; color:#111111;
-  letter-spacing:-0.07em; transform-origin:top left; will-change:transform;
+  letter-spacing:-0.05em; transform-origin:top left; will-change:transform;
   text-shadow: 2px 4px 12px rgba(0,0,0,0.15);
 }
 .hero-title span {
   display:inline-block;
-  transition:font-weight 0.8s cubic-bezier(0.37, 0, 0.63, 1),
-             font-variation-settings 0.8s cubic-bezier(0.37, 0, 0.63, 1);
+  transition:font-weight 0.8s cubic-bezier(0.37, 0, 0.63, 1);
 }
 .hero-meta {
   display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end;
