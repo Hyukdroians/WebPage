@@ -1,0 +1,6 @@
+{
+  "name": "우성 D'yu",
+  "description": "우성고등학교 학생들을 위한 스마트 올인원 학사 관리 및 급식 도우미 앱입니다.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
